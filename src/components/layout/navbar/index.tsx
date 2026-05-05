@@ -11,6 +11,7 @@ import { TextAlignJustify, X, ArrowUpRight } from "lucide-react"
 import { AnimatePresence, motion } from "motion/react"
 import { useCallback, useEffect, useState } from "react"
 import { navigationData } from "@/components/layout/navbar/utils"
+import ecosortImage from "@/assets/brand/ecosort.png"
 
 const Navbar = () => {
   const [sticky, setSticky] = useState(false)
@@ -51,7 +52,9 @@ const Navbar = () => {
                 : "border-transparent bg-transparent"
             )}
           >
-            <a href="#">Hello</a>
+            <a href="#">
+              <img src={ecosortImage} alt="EcoSort" className="w-32" />
+            </a>
 
             <NavigationMenu className="rounded-full p-0.5 max-lg:hidden">
               <NavigationMenuList className="flex gap-0">
