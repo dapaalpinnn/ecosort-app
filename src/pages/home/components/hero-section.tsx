@@ -14,14 +14,14 @@ const HeroSection = () => {
 
           <h1
             id="hero-heading"
-            className="mt-2 text-3xl leading-tight font-medium tracking-tighter sm:text-4xl"
+            className="mt-2 text-3xl leading-tight font-medium tracking-tighter sm:text-4xl lg:text-5xl"
           >
             EcoSort AI. Your Digital Partner for Sustainable Living.
           </h1>
 
           <p className="w-3/4 text-base leading-tight tracking-tight text-muted-foreground">
             Asisten digital Anda sebagai solusi praktis identifikasi sampah dan
-            panduan daur ulang.
+            panduan daur ulang — Second Life Better Life!
           </p>
 
           <div className="mt-4 flex items-center gap-4">

@@ -53,7 +53,7 @@ const Navbar = () => {
             )}
           >
             <a href="#">
-              <img src={ecosortImage} alt="EcoSort" className="w-32" />
+              <img src={ecosortImage} alt="EcoSort" className="w-32 lg:w-40" />
             </a>
 
             <NavigationMenu className="rounded-full p-0.5 max-lg:hidden">
@@ -62,7 +62,7 @@ const Navbar = () => {
                   <NavigationMenuItem key={navItem.title}>
                     <NavigationMenuLink
                       href={navItem.href}
-                      className="rounded-full px-2 py-2 text-sm font-medium tracking-normal text-muted-foreground outline outline-transparent transition hover:text-primary hover:shadow-xs hover:outline-border lg:px-4"
+                      className="rounded-full px-2 py-2 text-[16px] tracking-tight text-muted-foreground outline outline-transparent transition hover:text-primary hover:shadow-xs hover:outline-border lg:px-4"
                     >
                       {navItem.title}
                     </NavigationMenuLink>
