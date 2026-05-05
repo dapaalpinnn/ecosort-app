@@ -1,8 +1,11 @@
-import Button from "@/components/ui/button/button"
+import Button from "@/components/ui/button"
+import Navbar from "@/components/layout/navbar"
 
 export function App() {
   return (
-    <div className="flex min-h-svh p-6">
+    <div className="flex min-h-svh flex-col p-6">
+      <Navbar />
+
       <div className="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
         <div>
           <h1 className="text-4xl font-medium tracking-tight">
@@ -20,6 +23,9 @@ export function App() {
             Click me
           </Button>
         </div>
+      </div>
+      <div className="h-screen">
+        <p></p>
       </div>
     </div>
   )
