@@ -1,8 +1,8 @@
-import secondLifeBetterLife from "@/assets/brand/second-life-better-life.png"
 import { motion } from "motion/react"
 import { Badge } from "@/components/ui/badge/badge"
 import { useState, useEffect } from "react"
 import { AnimatePresence } from "motion/react"
+import leavesImage from "@/assets/leaves.png"
 
 const SecondLifeBetterLife = () => {
   const [word, setWord] = useState<"Second" | "Better">("Second")
@@ -17,15 +17,19 @@ const SecondLifeBetterLife = () => {
   })
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4 tracking-tight">
+    <div className="flex flex-col items-center justify-center gap-2 tracking-tight">
       <motion.img
-        src={secondLifeBetterLife}
-        alt="Second Life Better Life"
-        className="w-10"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+        src={leavesImage}
+        alt="Leaves"
+        className="inline-block w-10 origin-bottom-left align-middle"
+        animate={{ rotate: [-10, 10, -10] }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
       />
-      <Badge className="border px-4 py-3 text-[12px]">
+      <Badge className="border px-4 py-2 text-[12px]">
         <AnimatePresence mode="wait">
           <motion.span
             key={word}
