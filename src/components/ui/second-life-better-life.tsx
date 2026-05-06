@@ -1,5 +1,5 @@
 import { motion } from "motion/react"
-import { Badge } from "@/components/ui/badge/badge"
+import { Badge } from "@/components/ui/badge"
 import { useState, useEffect } from "react"
 import { AnimatePresence } from "motion/react"
 import leavesImage from "@/assets/leaves.png"

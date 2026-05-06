@@ -1,6 +1,6 @@
 "use client"
 
-import { Badge } from "@/components/ui/badge/badge"
+import { Badge } from "@/components/ui/badge"
 import { useScroll, useTransform, motion } from "motion/react"
 import { useRef, useEffect, useState } from "react"
 
