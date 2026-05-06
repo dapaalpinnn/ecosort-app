@@ -2,7 +2,7 @@ import { motion } from "motion/react"
 import { Badge } from "@/components/ui/badge"
 import { useState, useEffect } from "react"
 import { AnimatePresence } from "motion/react"
-import leavesImage from "@/assets/leaves.png"
+import leavesImage from "@/assets/images/leaves.png"
 
 const SecondLifeBetterLife = () => {
   const [word, setWord] = useState<"Second" | "Better">("Second")

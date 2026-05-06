@@ -1,4 +1,4 @@
-import recycleTrash from "@/assets/recycle-trash.png"
+import recycleTrash from "@/assets/images/recycle-trash.png"
 import { ArrowUpRight } from "lucide-react"
 
 const AboutEcosortSection = () => {

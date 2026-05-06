@@ -118,7 +118,7 @@ const Navbar = () => {
                     ease: "easeOut",
                   }}
                   whileHover={{ x: 10 }}
-                  className="group flex items-center gap-4 py-3 text-3xl font-medium tracking-tight text-foreground/60 transition-colors hover:text-primary"
+                  className="group flex items-center gap-4 py-3 text-3xl font-medium tracking-tight text-primary transition-colors hover:text-primary"
                 >
                   {item.title}
                   <motion.div
