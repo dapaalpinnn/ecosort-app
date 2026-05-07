@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge"
-import { statistics } from "@/pages/home/utils/statistics"
+import { statistics } from "@/pages/home/data/statistics"
 
 const StatisticSection = () => {
   return (

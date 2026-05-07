@@ -4,8 +4,8 @@ import { Badge } from "@/components/ui/badge"
 import { useScroll, useTransform, motion } from "motion/react"
 import { useRef, useEffect, useState } from "react"
 
-import { cards } from "@/pages/home/utils/cards"
-import { getConfig } from "@/pages/home/utils/get-inner-width"
+import { cards } from "@/pages/home/data/cards"
+import { getConfig } from "@/pages/home/utils"
 
 const FeaturesSection = () => {
   const containerRef = useRef<HTMLDivElement>(null)
