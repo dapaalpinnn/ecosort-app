@@ -81,13 +81,8 @@ const FeaturesSection = () => {
                   <div className="absolute right-0 bottom-0 left-0 h-20 bg-linear-to-t from-white to-transparent" />
                 </div>
 
-                <div className="flex flex-col gap-2 p-6">
-                  <Badge
-                    variant={"destructive"}
-                    className="text-xs tracking-tight"
-                  >
-                    {item.badge}
-                  </Badge>
+                <div className="flex flex-col gap-4 p-6">
+                  <Badge className="text-xs tracking-tight">{item.badge}</Badge>
                   <h3 className="text-[28px] leading-tight font-medium tracking-tighter text-gray-900 sm:text-xl md:text-3xl md:font-medium">
                     {item.label}
                   </h3>
