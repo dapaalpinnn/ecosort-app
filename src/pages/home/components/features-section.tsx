@@ -4,42 +4,11 @@ import { Badge } from "@/components/ui/badge"
 import { useScroll, useTransform, motion } from "motion/react"
 import { useRef, useEffect, useState } from "react"
 
-const items = [
-  {
-    id: 1,
-    color: "#ff0088",
-    label: "Night One",
-    image: "/photos/tokyo-shinjuku-2/image-1.jpg",
-  },
-  {
-    id: 2,
-    color: "#dd00ee",
-    label: "Night Two",
-    image: "/photos/tokyo-shinjuku-2/image-2.jpg",
-  },
-  {
-    id: 3,
-    color: "#9911ff",
-    label: "Night Three",
-    image: "/photos/tokyo-shinjuku-2/image-3.jpg",
-  },
-  {
-    id: 4,
-    color: "#0d63f8",
-    label: "Night Four",
-    image: "/photos/tokyo-shinjuku-2/image-4.jpg",
-  },
-]
-
-const getConfig = (w: number) => {
-  if (w < 640) return { itemWidth: 300, itemHeight: 400, gap: 16 }
-  if (w < 1024) return { itemWidth: 360, itemHeight: 460, gap: 20 }
-  return { itemWidth: 420, itemHeight: 520, gap: 24 }
-}
+import { cards } from "@/pages/home/utils/cards"
+import { getConfig } from "@/pages/home/utils/get-inner-width"
 
 const FeaturesSection = () => {
   const containerRef = useRef<HTMLDivElement>(null)
-
   const [{ itemWidth, itemHeight, gap }, setConfig] = useState(() =>
     typeof window !== "undefined"
       ? getConfig(window.innerWidth)
@@ -49,6 +18,7 @@ const FeaturesSection = () => {
   useEffect(() => {
     const onResize = () => setConfig(getConfig(window.innerWidth))
     window.addEventListener("resize", onResize)
+
     return () => window.removeEventListener("resize", onResize)
   }, [])
 
@@ -65,8 +35,8 @@ const FeaturesSection = () => {
 
   // total travel distance
   const totalTravel =
-    items.length * itemWidth +
-    (items.length - 1) * gap +
+    cards.length * itemWidth +
+    (cards.length - 1) * gap +
     sidePad * 2 +
     itemWidth
 
@@ -74,52 +44,56 @@ const FeaturesSection = () => {
 
   return (
     <section id="features" className="w-full">
-      <div className="mx-auto flex flex-col items-center gap-4 px-4 text-center sm:max-w-2xl sm:px-6 md:max-w-3xl">
+      <div className="mx-auto flex flex-col items-center gap-4 px-6 text-center sm:max-w-2xl sm:px-6 md:max-w-3xl">
         <Badge variant="outline" className="text-xs tracking-tight">
           Bagaimana kami membantu?
         </Badge>
         <h2 className="text-3xl font-medium tracking-tighter sm:text-4xl md:text-5xl">
-          Solusi digital untuk mempermudah Anda memilah dan mendaur ulang sampah
-          secara efisien.
+          Solusi digital untuk mempermudah Anda span memilah dan mendaur ulang
+          sampah secara efisien.
         </h2>
       </div>
 
-      <div ref={containerRef} className="relative mt-16 h-[300vh]">
+      <div ref={containerRef} className="relative mt-16 h-[350vh]">
         {" "}
         {/* scroll runway */}
         <div className="sticky top-0 flex h-screen items-center overflow-hidden">
           <motion.div className="flex" style={{ x, gap }}>
             <div style={{ width: sidePad, flexShrink: 0 }} />{" "}
             {/* left spacer */}
-            {items.map((item) => (
+            {cards.map((item) => (
               <div
                 key={item.id}
-                className="relative shrink-0 overflow-hidden rounded-2xl border"
+                className="relative flex shrink-0 flex-col overflow-hidden rounded-xl bg-white"
                 style={{
                   width: itemWidth,
                   height: itemHeight,
-                  backgroundImage: `url(${item.image})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
                 }}
               >
-                <div // gradient overlay
-                  className="absolute inset-0"
+                <div
+                  className="relative h-[75%]"
                   style={{
-                    background: `linear-gradient(to bottom, transparent 50%, ${item.color})`,
-                    mixBlendMode: "multiply",
+                    backgroundImage: `url(${item.image})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
                   }}
-                />
-                <div className="absolute bottom-8 left-8 z-10">
-                  <span
-                    className="mb-2 block font-mono text-sm"
-                    style={{ color: item.color }}
+                >
+                  <div className="absolute right-0 bottom-0 left-0 h-20 bg-linear-to-t from-white to-transparent" />
+                </div>
+
+                <div className="flex flex-col gap-2 p-6">
+                  <Badge
+                    variant={"destructive"}
+                    className="text-xs tracking-tight"
                   >
-                    0{item.id}
-                  </span>
-                  <h3 className="text-2xl font-semibold text-white">
+                    {item.badge}
+                  </Badge>
+                  <h3 className="text-[28px] leading-tight font-medium tracking-tighter text-gray-900 sm:text-xl md:text-3xl md:font-medium">
                     {item.label}
                   </h3>
+                  <p className="sm:mt- leading-tight tracking-tight text-gray-600">
+                    {item.description}
+                  </p>
                 </div>
               </div>
             ))}
@@ -128,7 +102,6 @@ const FeaturesSection = () => {
           </motion.div>
         </div>
       </div>
-      <div className="h-screen"></div>
     </section>
   )
 }
