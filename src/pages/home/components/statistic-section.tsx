@@ -16,7 +16,7 @@ const StatisticSection = () => {
         <div className="mt-16 grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-8">
           {statistics.map((statistic) => (
             <div className="flex flex-col gap-2 p-2">
-              <h3 className="text-lg font-semibold tracking-tighter sm:text-xl md:text-3xl">
+              <h3 className="text-2xl font-semibold tracking-tighter sm:text-4xl lg:text-5xl">
                 {statistic.value} {statistic.unit}
               </h3>
               <p className="text-sm leading-tight tracking-tight">

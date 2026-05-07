@@ -12,10 +12,7 @@ const HeroSection = () => {
         <div className="mx-auto flex flex-col items-center gap-4 text-center sm:max-w-2xl md:max-w-3xl">
           <SecondLifeBetterLife />
 
-          <h1
-            id="hero-heading"
-            className="mt-2 text-3xl leading-tight font-medium tracking-tighter sm:text-4xl lg:text-5xl"
-          >
+          <h1 className="mt-2 text-3xl leading-tight font-medium tracking-tighter sm:text-4xl lg:text-5xl">
             EcoSort AI. Your Digital Partner for Sustainable Living.
           </h1>
 
