@@ -6,16 +6,13 @@ import { motion } from "motion/react"
 
 const AboutEcosortSection = () => {
   return (
-    <PageSection
-      id="about-ecosort"
-      contentClassName="lg:max-w-4xl xl:max-w-5xl"
-    >
-      <div className="bg-primary sm:rounded-2xl md:grid md:grid-cols-2">
+    <PageSection id="about" contentClassName="lg:max-w-4xl xl:max-w-5xl">
+      <div className="bg-primary sm:rounded-4xl md:grid md:grid-cols-2">
         <div className="flex flex-col gap-4 px-8 py-12 sm:p-10">
           <SectionTitle
             as="h2"
             color="secondary"
-            className="flex items-center gap-4 text-left md:gap-4 lg:gap-8"
+            className="flex w-full items-center gap-4 text-left md:gap-4 lg:gap-8"
           >
             Tentang Ecosort{" "}
             <motion.img

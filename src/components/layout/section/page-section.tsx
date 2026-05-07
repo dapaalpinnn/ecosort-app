@@ -15,14 +15,12 @@ const PageSection = ({
   return (
     <section
       id={id}
-      className={
-        (cn("mx-auto w-full max-w-7xl border px-6 sm:px-10"), className)
-      }
+      className={(cn("mx-auto w-full max-w-7xl px-6 sm:px-10"), className)}
       {...props}
     >
       <div
         className={cn(
-          "flex flex-col items-center gap-4 text-center sm:max-w-xl md:max-w-2xl",
+          "flex flex-col items-center gap-4 text-center sm:max-w-xl md:max-w-3xl lg:max-w-4xl",
           contentClassName
         )}
       >

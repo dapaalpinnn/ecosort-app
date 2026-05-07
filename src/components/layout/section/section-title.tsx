@@ -20,7 +20,7 @@ const SectionTitle = ({
   return (
     <Tag
       className={cn(
-        "text-3xl leading-tight font-medium tracking-tighter sm:text-4xl lg:text-5xl",
+        "w-[80%] text-3xl font-medium tracking-tighter sm:text-4xl lg:text-5xl",
         colorVariants[color],
         className
       )}

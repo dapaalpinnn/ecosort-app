@@ -13,7 +13,7 @@ export const statistics: Statistics[] = [
   {
     value: 60,
     unit: "%",
-    description: "Didominasi oleh Sampah Organik",
+    description: "Didominasi Sampah Organik",
   },
   {
     value: 17,
