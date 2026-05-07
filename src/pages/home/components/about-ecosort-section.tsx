@@ -10,7 +10,7 @@ const AboutEcosortSection = () => {
             <h2 className="md:gap4 flex items-center gap-2 text-3xl tracking-tight text-background md:text-4xl">
               Tentang Ecosort <ArrowUpRight size={40} />
             </h2>
-            <p className="mt-2 text-lg leading-tight text-accent md:mt-4">
+            <p className="mt-2 text-lg leading-tight tracking-tight text-accent md:mt-6">
               Kami menghadirkan solusi digital masa kini. Dirancang khusus untuk
               menjembatani celah antara teknologi dan kelestarian lingkungan.
               Dengan memanfaatkan sistem klasifikasi berbasis kecerdasan buatan,

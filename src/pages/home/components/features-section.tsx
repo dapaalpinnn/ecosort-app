@@ -45,12 +45,12 @@ const FeaturesSection = () => {
   return (
     <section id="features" className="w-full">
       <div className="mx-auto flex flex-col items-center gap-4 px-6 text-center sm:max-w-2xl sm:px-6 md:max-w-3xl">
-        <Badge variant="outline" className="text-xs tracking-tight">
+        <Badge variant="outline" className="tracking-tight">
           Bagaimana kami membantu?
         </Badge>
         <h2 className="text-3xl font-medium tracking-tighter sm:text-4xl md:text-5xl">
-          Solusi digital untuk mempermudah Anda span memilah dan mendaur ulang
-          sampah secara efisien.
+          Solusi digital untuk mempermudah Anda memilah dan mendaur ulang sampah
+          secara efisien.
         </h2>
       </div>
 
