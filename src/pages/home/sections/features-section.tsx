@@ -3,9 +3,10 @@
 import { Badge } from "@/components/ui/badge"
 import { useScroll, useTransform, motion } from "motion/react"
 import { useRef, useEffect, useState } from "react"
-
 import { cards } from "@/pages/home/data/cards"
 import { getConfig } from "@/pages/home/utils"
+import FeatureCard from "@/components/ui/feature-card"
+import SectionTitle from "@/components/layout/section/section-title"
 
 const FeaturesSection = () => {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -44,14 +45,12 @@ const FeaturesSection = () => {
 
   return (
     <section id="features" className="w-full">
-      <div className="mx-auto flex flex-col items-center gap-4 px-6 text-center sm:max-w-2xl sm:px-6 md:max-w-3xl">
-        <Badge variant="outline" className="tracking-tight">
-          Bagaimana kami membantu?
-        </Badge>
-        <h2 className="text-3xl font-medium tracking-tighter sm:text-4xl md:text-5xl">
+      <div className="mx-auto flex flex-col items-center text-center sm:max-w-xl md:max-w-3xl lg:max-w-4xl">
+        <Badge className="tracking-tight">Bagaimana kami membantu?</Badge>
+        <SectionTitle as="h2" className="py-4">
           Solusi digital untuk mempermudah Anda memilah dan mendaur ulang sampah
           secara efisien.
-        </h2>
+        </SectionTitle>
       </div>
 
       <div ref={containerRef} className="relative mt-16 h-[350vh]">
@@ -62,35 +61,12 @@ const FeaturesSection = () => {
             <div style={{ width: sidePad, flexShrink: 0 }} />{" "}
             {/* left spacer */}
             {cards.map((item) => (
-              <div
-                key={item.id}
-                className="relative flex shrink-0 flex-col overflow-hidden rounded-xl bg-white"
-                style={{
-                  width: itemWidth,
-                  height: itemHeight,
-                }}
-              >
-                <div
-                  className="relative h-[75%]"
-                  style={{
-                    backgroundImage: `url(${item.image})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                >
-                  <div className="absolute right-0 bottom-0 left-0 h-20 bg-linear-to-t from-white to-transparent" />
-                </div>
-
-                <div className="flex flex-col gap-4 p-6">
-                  <Badge className="text-xs tracking-tight">{item.badge}</Badge>
-                  <h3 className="text-[28px] leading-tight font-medium tracking-tighter text-gray-900 sm:text-xl md:text-3xl md:font-medium">
-                    {item.label}
-                  </h3>
-                  <p className="sm:mt- leading-tight tracking-tight text-gray-600">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
+              <FeatureCard
+                key={item.label}
+                item={item}
+                itemWidth={itemWidth}
+                itemHeight={itemHeight}
+              />
             ))}
             <div style={{ width: sidePad, flexShrink: 0 }} />{" "}
             {/* right spacer */}

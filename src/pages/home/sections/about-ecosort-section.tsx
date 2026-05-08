@@ -6,7 +6,11 @@ import { motion } from "motion/react"
 
 const AboutEcosortSection = () => {
   return (
-    <PageSection id="about" contentClassName="lg:max-w-4xl xl:max-w-5xl">
+    <PageSection
+      id="about"
+      contentClassName="lg:max-w-4xl xl:max-w-5xl"
+      className="flex items-center justify-center"
+    >
       <div className="bg-primary sm:rounded-4xl md:grid md:grid-cols-2">
         <div className="flex flex-col gap-4 px-8 py-12 sm:p-10">
           <SectionTitle

@@ -5,7 +5,10 @@ import SectionTitle from "@/components/layout/section/section-title"
 
 const HeroSection = () => {
   return (
-    <PageSection id="hero" className="flex min-h-[80svh] items-center">
+    <PageSection
+      id="hero"
+      className="flex min-h-[80svh] items-center justify-center"
+    >
       <SecondLifeBetterLife />
       <SectionTitle as="h1" className="leading-tight">
         EcoSort AI. Your Digital Partner for Sustainable Living.

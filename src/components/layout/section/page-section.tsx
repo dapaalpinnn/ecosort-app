@@ -15,7 +15,7 @@ const PageSection = ({
   return (
     <section
       id={id}
-      className={(cn("mx-auto w-full max-w-7xl px-6 sm:px-10"), className)}
+      className={cn("mx-auto w-full max-w-7xl sm:px-10", className)}
       {...props}
     >
       <div

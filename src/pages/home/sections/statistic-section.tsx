@@ -16,9 +16,9 @@ const StatisticSection = () => {
         Angka-angka berikut menunjukkan seberapa besar tantangan pengelolaan
         sampah yang kita hadapi setiap tahunnya.
       </SectionTitle>
-      <div className="grid grid-cols-2 py-6 lg:grid-cols-4 lg:py-10">
+      <div className="grid grid-cols-2 py-6 lg:grid-cols-4 lg:py-14">
         {statistics.map((statistic) => (
-          <div key={statistic.value} className="flex flex-col gap-2 border p-4">
+          <div key={statistic.value} className="flex flex-col gap-2 p-4">
             <h3 className="text-xl font-medium tracking-tighter sm:text-2xl lg:text-4xl">
               {statistic.value} {statistic.unit}
             </h3>

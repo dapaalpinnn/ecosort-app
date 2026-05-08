@@ -96,3 +96,7 @@
     @apply font-sans;
   }
 }
+
+.inspeksi {
+  border: 1px solid red;
+}
