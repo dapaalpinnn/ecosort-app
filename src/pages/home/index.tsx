@@ -1,15 +1,127 @@
-import Hero from "@/components/layout/section/home/hero"
-import About from "@/components/layout/section/home/about"
-import Features from "@/components/layout/section/home/features"
-import Statistic from "@/components/layout/section/home/statistic"
+import PageSection from "@/components/layout/section/page-section"
+import SectionTitle from "@/components/layout/section/section-title"
+import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
+import Button from "@/components/ui/button"
+
+import { motion } from "motion/react"
+import recycleImage from "@/assets/brand/second-life-better-life.png"
+import recycleTrash from "@/assets/images/recycle-trash.png"
+
+import { Badge } from "@/components/ui/badge"
+import { statistics } from "@/pages/home/data/statistics"
+
+import ScrollHorizontal from "@/pages/home/components/scroll-horizontal"
+import { features } from "@/pages/home/data/features"
+
+import { items } from "@/pages/home/data/waste-type"
 
 const Home = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
-      <Hero />
-      <About />
-      <Statistic />
-      <Features />
+      <PageSection
+        id="hero"
+        className="flex min-h-[80svh] items-center justify-center"
+      >
+        <SecondLifeBetterLife />
+        <SectionTitle as="h1" className="leading-tight">
+          EcoSort AI. Your Digital Partner for Sustainable Living.
+        </SectionTitle>
+        <p className="w-3/4 leading-tight tracking-tight text-muted-foreground">
+          Asisten digital Anda sebagai solusi praktis identifikasi sampah dan
+          panduan daur ulang — Second Life Better Life!
+        </p>
+        <div className="mt-4 flex items-center gap-4">
+          <Button variant="outline" size="lg">
+            Masuk
+          </Button>
+          <Button size="lg">Pilih Gambar</Button>
+        </div>
+      </PageSection>
+
+      <PageSection
+        id="about"
+        contentClassName="lg:max-w-4xl xl:max-w-5xl"
+        className="flex items-center justify-center"
+      >
+        <div className="bg-primary sm:rounded-4xl md:grid md:grid-cols-2">
+          <div className="flex flex-col gap-4 px-8 py-12 sm:p-10">
+            <SectionTitle
+              as="h2"
+              color="secondary"
+              className="flex w-full items-center gap-4 text-left md:gap-4 lg:gap-8"
+            >
+              Tentang Ecosort{" "}
+              <motion.img
+                animate={{ rotate: 360 }}
+                transition={{ repeat: Infinity, duration: 5, ease: "linear" }}
+                src={recycleImage}
+                alt="Recycle"
+                className="w-10 invert sm:w-12 lg:w-16"
+              />
+            </SectionTitle>
+            <p className="text-left text-lg leading-tight tracking-tight text-muted-foreground">
+              Kami menghadirkan solusi digital masa kini. Dirancang khusus untuk
+              menjembatani celah antara teknologi dan kelestarian lingkungan.
+              Dengan memanfaatkan sistem klasifikasi berbasis kecerdasan buatan,
+              platform ini memandu Anda untuk memilah dan mendaur ulang berbagai
+              jenis sampah domestik secara jauh lebih efisien.
+            </p>
+          </div>
+          <div className="flex items-center p-8 pb-16 sm:p-10">
+            <img
+              src={recycleTrash}
+              alt="Gambar"
+              className="mx-auto h-full w-full rounded-2xl object-cover"
+            />
+          </div>
+        </div>
+      </PageSection>
+
+      <PageSection
+        id="statistic"
+        className="flex min-h-svh flex-col items-center justify-center py-18 lg:py-28"
+      >
+        <Badge variant={"destructive"} className="tracking-tight">
+          Skala permasalahan sampah di Indonesia
+        </Badge>
+        <SectionTitle as="h2">
+          Angka-angka berikut menunjukkan seberapa besar tantangan pengelolaan
+          sampah yang kita hadapi setiap tahunnya.
+        </SectionTitle>
+        <div className="grid grid-cols-2 py-6 lg:grid-cols-4 lg:py-14">
+          {statistics.map((statistic) => (
+            <div key={statistic.value} className="flex flex-col gap-2 p-4">
+              <h3 className="text-xl font-medium tracking-tighter sm:text-2xl lg:text-4xl">
+                {statistic.value} {statistic.unit}
+              </h3>
+              <p className="text-sm leading-tight tracking-tight md:text-base">
+                {statistic.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </PageSection>
+
+      <PageSection id="features" className="flex flex-col items-center">
+        <Badge>Bagaimana kami membantu?</Badge>
+        <SectionTitle as="h2">
+          Solusi digital untuk mempermudah Anda memilah dan mendaur ulang sampah
+          secara efisien.
+        </SectionTitle>
+        <ScrollHorizontal items={features} />
+      </PageSection>
+
+      <PageSection
+        id="waste-type"
+        className="inspeksi flex flex-col items-center"
+      >
+        <Badge>Jenis Sampah yang Diidentifikasi</Badge>
+        <SectionTitle as="h2">
+          Kenali lebih dalam jenis-jenis sampah untuk proses pemilahan dan daur
+          ulang yang lebih tepat.
+        </SectionTitle>
+        <ScrollHorizontal items={items} />
+      </PageSection>
     </div>
   )
 }
