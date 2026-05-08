@@ -1,14 +1,21 @@
 import Navbar from "@/components/layout/navbar"
 import Home from "@/pages/home"
+import Article from "@/pages/article"
+import { Routes, Route } from "react-router-dom"
+import Upload from "@/pages/upload"
 
 export function App() {
   return (
-    <div className="flex min-h-screen flex-col antialiased">
+    <>
       <Navbar />
       <main className="flex-1">
-        <Home></Home>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/article" element={<Article />} />
+          <Route path="/upload" element={<Upload />} />
+        </Routes>
       </main>
-    </div>
+    </>
   )
 }
 

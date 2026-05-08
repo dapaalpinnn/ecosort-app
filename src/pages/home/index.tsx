@@ -2,7 +2,6 @@ import Section from "@/components/layout/section/section"
 import SectionTitle from "@/components/layout/section/section-title"
 import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
 import Button from "@/components/ui/button"
-import ScrollHorizontal from "@/pages/home/components/scroll-horizontal"
 
 import recycleImage from "@/assets/brand/second-life-better-life.png"
 import recycleTrash from "@/assets/images/recycle-trash.png"
@@ -10,10 +9,13 @@ import recycleTrash from "@/assets/images/recycle-trash.png"
 import { motion } from "motion/react"
 import { Badge } from "@/components/ui/badge"
 import { statistics } from "@/pages/home/data/statistics"
-import { features } from "@/pages/home/data/features"
-import { wasteTypes } from "@/pages/home/data/waste-types"
+import { useNavigate } from "react-router-dom"
+// import { features } from "@/pages/home/data/features"
+// import { wasteTypes } from "@/pages/home/data/waste-types"
 
 const Home = () => {
+  const navigate = useNavigate()
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
       <Section id="hero" className="min-h-[80svh]">
@@ -26,10 +28,17 @@ const Home = () => {
           panduan daur ulang — Second Life Better Life!
         </p>
         <div className="mt-4 flex items-center gap-4">
-          <Button variant="outline" size="lg">
-            Masuk
+          <Button
+            variant="outline"
+            className="cursor-pointer"
+            size="lg"
+            onClick={() => navigate("article")}
+          >
+            Bacaan Artikel
           </Button>
-          <Button size="lg">Pilih Gambar</Button>
+          <Button size="lg" onClick={() => navigate("upload")}>
+            Pilih Gambar
+          </Button>
         </div>
       </Section>
 
@@ -96,7 +105,7 @@ const Home = () => {
           Solusi digital untuk mempermudah Anda memilah dan mendaur ulang sampah
           secara efisien.
         </SectionTitle>
-        <ScrollHorizontal items={features} />
+        {/* <ScrollHorizontal items={features} /> */}
       </Section>
 
       <Section id="waste-type">
@@ -105,7 +114,7 @@ const Home = () => {
           Kenali lebih dalam jenis-jenis sampah untuk proses pemilahan dan daur
           ulang yang lebih tepat.
         </SectionTitle>
-        <ScrollHorizontal items={wasteTypes} />
+        {/* <ScrollHorizontal items={wasteTypes} /> */}
       </Section>
     </div>
   )

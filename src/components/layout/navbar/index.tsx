@@ -12,6 +12,7 @@ import { AnimatePresence, motion } from "motion/react"
 import { useCallback, useEffect, useState } from "react"
 import { navigationData } from "@/components/layout/navbar/utils"
 import ecosortImage from "@/assets/brand/ecosort.png"
+import { NavLink } from "react-router-dom"
 
 const Navbar = () => {
   const [sticky, setSticky] = useState(false)
@@ -52,9 +53,9 @@ const Navbar = () => {
                 : "border-transparent bg-transparent"
             )}
           >
-            <a href="#">
+            <NavLink to="/">
               <img src={ecosortImage} alt="EcoSort" className="w-32 lg:w-40" />
-            </a>
+            </NavLink>
 
             <NavigationMenu className="rounded-full p-0.5 max-lg:hidden">
               <NavigationMenuList className="flex gap-0">

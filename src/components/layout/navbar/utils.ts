@@ -10,18 +10,14 @@ export const navigationData: NavigationSection[] = [
   },
   {
     title: "Tentang EcoSort",
-    href: "#",
+    href: "#about",
   },
   {
     title: "Layanan",
-    href: "#",
+    href: "#features",
   },
   {
     title: "Fitur",
-    href: "#",
-  },
-  {
-    title: "Artikel",
-    href: "#",
+    href: "#features",
   },
 ]
