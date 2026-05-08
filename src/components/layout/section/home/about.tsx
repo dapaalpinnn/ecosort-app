@@ -4,7 +4,7 @@ import SectionTitle from "@/components/layout/section/section-title"
 import recycleImage from "@/assets/brand/second-life-better-life.png"
 import { motion } from "motion/react"
 
-const AboutEcosortSection = () => {
+const About = () => {
   return (
     <PageSection
       id="about"
@@ -47,4 +47,4 @@ const AboutEcosortSection = () => {
   )
 }
 
-export default AboutEcosortSection
+export default About

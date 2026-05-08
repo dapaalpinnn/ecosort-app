@@ -3,7 +3,7 @@ import { statistics } from "@/pages/home/data/statistics"
 import PageSection from "@/components/layout/section/page-section"
 import SectionTitle from "@/components/layout/section/section-title"
 
-const StatisticSection = () => {
+const Statistic = () => {
   return (
     <PageSection
       id="statistic"
@@ -32,4 +32,4 @@ const StatisticSection = () => {
   )
 }
 
-export default StatisticSection
+export default Statistic

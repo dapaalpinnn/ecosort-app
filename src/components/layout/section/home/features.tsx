@@ -8,7 +8,7 @@ import { getConfig } from "@/pages/home/utils"
 import FeatureCard from "@/components/ui/feature-card"
 import SectionTitle from "@/components/layout/section/section-title"
 
-const FeaturesSection = () => {
+const Features = () => {
   const containerRef = useRef<HTMLDivElement>(null)
   const [{ itemWidth, itemHeight, gap }, setConfig] = useState(() =>
     typeof window !== "undefined"
@@ -77,4 +77,4 @@ const FeaturesSection = () => {
   )
 }
 
-export default FeaturesSection
+export default Features

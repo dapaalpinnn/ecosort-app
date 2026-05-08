@@ -3,7 +3,7 @@ import Button from "@/components/ui/button"
 import PageSection from "@/components/layout/section/page-section"
 import SectionTitle from "@/components/layout/section/section-title"
 
-const HeroSection = () => {
+const Hero = () => {
   return (
     <PageSection
       id="hero"
@@ -27,4 +27,4 @@ const HeroSection = () => {
   )
 }
 
-export default HeroSection
+export default Hero

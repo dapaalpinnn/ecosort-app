@@ -1,15 +1,15 @@
-import HeroSection from "@/pages/home/sections/hero-section"
-import AboutEcosortSection from "@/pages/home/sections/about-ecosort-section"
-import FeaturesSection from "@/pages/home/sections/features-section"
-import StatisticSection from "@/pages/home/sections/statistic-section"
+import Hero from "@/components/layout/section/home/hero"
+import About from "@/components/layout/section/home/about"
+import Features from "@/components/layout/section/home/features"
+import Statistic from "@/components/layout/section/home/statistic"
 
 const Home = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
-      <HeroSection />
-      <AboutEcosortSection />
-      <StatisticSection />
-      <FeaturesSection />
+      <Hero />
+      <About />
+      <Statistic />
+      <Features />
     </div>
   )
 }
