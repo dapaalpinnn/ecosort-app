@@ -47,9 +47,14 @@ export default function ScrollHorizontal({
                   } as React.CSSProperties
                 }
               >
-                <div className="item-content">
-                  <span className="item-number">0{item.id}</span>
-                  <h2>{item.label}</h2>
+                <div className="item-content text-left">
+                  <h2 className="leading-tight font-medium! tracking-tight">
+                    {item.label}
+                  </h2>
+                  <p className="mt-2 leading-tight text-neutral-300">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Cumque, obcaecati?
+                  </p>
                 </div>
               </div>
             ))}
@@ -136,7 +141,7 @@ function StyleSheet() {
                 inset: 0;
                 background: linear-gradient(
                     to bottom,
-                    transparent 60%,
+                    transparent 40%,
                     var(--item-color)
                 );
                 mix-blend-mode: multiply;

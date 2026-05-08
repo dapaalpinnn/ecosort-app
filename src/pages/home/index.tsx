@@ -1,27 +1,22 @@
-import PageSection from "@/components/layout/section/page-section"
+import Section from "@/components/layout/section/section"
 import SectionTitle from "@/components/layout/section/section-title"
 import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
 import Button from "@/components/ui/button"
+import ScrollHorizontal from "@/pages/home/components/scroll-horizontal"
 
-import { motion } from "motion/react"
 import recycleImage from "@/assets/brand/second-life-better-life.png"
 import recycleTrash from "@/assets/images/recycle-trash.png"
 
+import { motion } from "motion/react"
 import { Badge } from "@/components/ui/badge"
 import { statistics } from "@/pages/home/data/statistics"
-
-import ScrollHorizontal from "@/pages/home/components/scroll-horizontal"
 import { features } from "@/pages/home/data/features"
-
-import { items } from "@/pages/home/data/waste-type"
+import { wasteTypes } from "@/pages/home/data/waste-types"
 
 const Home = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
-      <PageSection
-        id="hero"
-        className="flex min-h-[80svh] items-center justify-center"
-      >
+      <Section id="hero" className="min-h-[80svh]">
         <SecondLifeBetterLife />
         <SectionTitle as="h1" className="leading-tight">
           EcoSort AI. Your Digital Partner for Sustainable Living.
@@ -36,13 +31,9 @@ const Home = () => {
           </Button>
           <Button size="lg">Pilih Gambar</Button>
         </div>
-      </PageSection>
+      </Section>
 
-      <PageSection
-        id="about"
-        contentClassName="lg:max-w-4xl xl:max-w-5xl"
-        className="flex items-center justify-center"
-      >
+      <Section id="about" contentClassName="lg:max-w-4xl xl:max-w-5xl">
         <div className="bg-primary sm:rounded-4xl md:grid md:grid-cols-2">
           <div className="flex flex-col gap-4 px-8 py-12 sm:p-10">
             <SectionTitle
@@ -75,12 +66,9 @@ const Home = () => {
             />
           </div>
         </div>
-      </PageSection>
+      </Section>
 
-      <PageSection
-        id="statistic"
-        className="flex min-h-svh flex-col items-center justify-center py-18 lg:py-28"
-      >
+      <Section id="statistic" className="min-h-svh py-18 lg:py-28">
         <Badge variant={"destructive"} className="tracking-tight">
           Skala permasalahan sampah di Indonesia
         </Badge>
@@ -100,28 +88,25 @@ const Home = () => {
             </div>
           ))}
         </div>
-      </PageSection>
+      </Section>
 
-      <PageSection id="features" className="flex flex-col items-center">
+      <Section id="features" className="py-18 lg:py-28">
         <Badge>Bagaimana kami membantu?</Badge>
         <SectionTitle as="h2">
           Solusi digital untuk mempermudah Anda memilah dan mendaur ulang sampah
           secara efisien.
         </SectionTitle>
         <ScrollHorizontal items={features} />
-      </PageSection>
+      </Section>
 
-      <PageSection
-        id="waste-type"
-        className="inspeksi flex flex-col items-center"
-      >
+      <Section id="waste-type">
         <Badge>Jenis Sampah yang Diidentifikasi</Badge>
         <SectionTitle as="h2">
           Kenali lebih dalam jenis-jenis sampah untuk proses pemilahan dan daur
           ulang yang lebih tepat.
         </SectionTitle>
-        <ScrollHorizontal items={items} />
-      </PageSection>
+        <ScrollHorizontal items={wasteTypes} />
+      </Section>
     </div>
   )
 }

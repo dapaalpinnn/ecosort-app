@@ -5,7 +5,7 @@ type PageSectionProps = ComponentProps<"section"> & {
   contentClassName?: string
 }
 
-const PageSection = ({
+const Section = ({
   id,
   className,
   contentClassName,
@@ -15,7 +15,10 @@ const PageSection = ({
   return (
     <section
       id={id}
-      className={cn("mx-auto w-full max-w-7xl sm:px-10", className)}
+      className={cn(
+        "mx-auto flex w-full max-w-7xl flex-col items-center justify-center sm:px-10",
+        className
+      )}
       {...props}
     >
       <div
@@ -30,4 +33,4 @@ const PageSection = ({
   )
 }
 
-export default PageSection
+export default Section
