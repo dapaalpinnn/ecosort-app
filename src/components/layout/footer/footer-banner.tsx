@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import SectionTitle from "@/components/layout/section/section-title"
-import RecycleImage from "@/pages/home/components/recycle-image"
+import RecycleImage from "@/pages/home/components/recycle-animation"
 
 const FooterBanner = () => {
   return (
@@ -12,6 +12,12 @@ const FooterBanner = () => {
       <Link
         to="/article"
         className="mt-20 flex w-fit items-center gap-4 rounded-lg bg-accent px-5 py-3 tracking-tight text-foreground"
+        onClick={() => {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          })
+        }}
       >
         <p className="tracking-tight sm:text-xl">Second life, better life</p>
         <RecycleImage />

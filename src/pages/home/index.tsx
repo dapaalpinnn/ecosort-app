@@ -1,7 +1,7 @@
 import { motion } from "motion/react"
 import { useNavigate } from "react-router-dom"
 
-import Section from "@/components/layout/section/section"
+import Section from "@/components/layout/section"
 import SectionTitle from "@/components/layout/section/section-title"
 import WasteTypeCard from "@/pages/home/components/waste-type-card"
 
@@ -18,7 +18,7 @@ import { statistics } from "@/pages/home/data/statistics"
 import { wasteTypes } from "@/pages/home/data/waste-types"
 import { itemVariants } from "@/utils/variants"
 
-import RecycleImage from "@/pages/home/components/recycle-image"
+import RecycleLogoAnimation from "@/pages/home/components/recycle-animation"
 
 const Home = () => {
   const navigate = useNavigate()
@@ -51,17 +51,15 @@ const Home = () => {
 
       <Section
         id="about"
-        contentClassName="lg:max-w-4xl xl:max-w-5xl"
-        className="min-h-[75svh]"
+        className="min-h-[75svh] rounded-4xl border-4 border-dashed lg:max-w-4xl xl:max-w-5xl"
       >
-        <div className="sm:rounded-4xl md:grid md:grid-cols-2">
+        <div className="rounded-2xl sm:rounded-4xl md:grid md:grid-cols-2">
           <div className="flex flex-col gap-4 px-8 py-12 sm:p-10">
             <SectionTitle
               as="h2"
-              // color="secondary"
               className="flex w-full items-center gap-4 text-left md:gap-4 lg:gap-8"
             >
-              Tentang Ecosort <RecycleImage />
+              Tentang Ecosort <RecycleLogoAnimation />
             </SectionTitle>
             <p className="text-left text-lg leading-tight tracking-tight text-muted-foreground">
               Kami menghadirkan solusi digital masa kini. Dirancang khusus untuk
@@ -103,7 +101,10 @@ const Home = () => {
         </div>
       </Section>
 
-      <Section id="waste-type" className="min-h-svh">
+      <Section
+        id="waste-type"
+        className="min-h-svh rounded-4xl border-4 border-dashed"
+      >
         <Badge>Jenis Sampah yang Diidentifikasi</Badge>
         <SectionTitle as="h2">
           Kenali lebih dalam jenis-jenis sampah untuk proses pemilahan dan daur

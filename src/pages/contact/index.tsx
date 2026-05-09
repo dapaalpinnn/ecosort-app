@@ -1,4 +1,4 @@
-import Section from "@/components/layout/section/section"
+import Section from "@/components/layout/section"
 import SectionTitle from "@/components/layout/section/section-title"
 // import { PhoneCall } from "lucide-react"
 import SecondLifeBetterLife from "@/components/ui/second-life-better-life"

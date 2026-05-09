@@ -1,7 +1,7 @@
 import { motion } from "motion/react"
 import recycleImage from "@/assets/brand/second-life-better-life.png"
 
-const RecycleImage = () => {
+const RecycleLogoAnimation = () => {
   return (
     <motion.img
       animate={{ rotate: 360 }}
@@ -13,4 +13,4 @@ const RecycleImage = () => {
   )
 }
 
-export default RecycleImage
+export default RecycleLogoAnimation
