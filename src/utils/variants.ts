@@ -24,11 +24,10 @@ export const itemVariants: Variants = {
  * Used to animate the children of a section component
  */
 export const sectionChildVariants: Variants = {
-  hidden: { opacity: 0, y: 30, filter: "blur(4px)" },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: { duration: 0.5, ease: "easeOut" },
   },
 }

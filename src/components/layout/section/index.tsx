@@ -1,8 +1,7 @@
 // components/layout/section/section.tsx
 import { cn } from "@/lib/utils"
-import { sectionChildVariants } from "@/utils/variants"
 import { motion, type MotionProps } from "motion/react"
-import { type ComponentProps, Children } from "react"
+import { type ComponentProps } from "react"
 
 type SectionProps = ComponentProps<"section"> &
   MotionProps & {
@@ -26,20 +25,10 @@ const Section = ({
       initial={withAnimation ? "hidden" : undefined}
       whileInView={withAnimation ? "visible" : undefined}
       viewport={{ once: true, amount: 0.8 }}
-      transition={{ staggerChildren: 0.15 }}
+      transition={{ staggerChildren: 0.25 }}
       {...props}
     >
-      {withAnimation
-        ? Children.map(children, (child) => (
-            <motion.div
-              variants={sectionChildVariants}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="flex items-center justify-center"
-            >
-              {child}
-            </motion.div>
-          ))
-        : children}
+      {children}
     </motion.section>
   )
 }

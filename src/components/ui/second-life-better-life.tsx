@@ -3,8 +3,13 @@ import { Badge } from "@/components/ui/badge"
 import { useState, useEffect } from "react"
 import { AnimatePresence } from "motion/react"
 import leavesImage from "@/assets/images/leaves.png"
+import { itemVariants } from "@/utils/variants"
 
-const SecondLifeBetterLife = () => {
+const SecondLifeBetterLife = ({
+  withAnimation = false,
+}: {
+  withAnimation?: boolean
+}) => {
   const [word, setWord] = useState<"Second" | "Better">("Second")
 
   useEffect(() => {
@@ -17,7 +22,10 @@ const SecondLifeBetterLife = () => {
   })
 
   return (
-    <div className="flex flex-col items-center justify-center gap-2 tracking-tight">
+    <motion.div
+      variants={withAnimation ? itemVariants : undefined}
+      className="flex flex-col items-center justify-center gap-2 tracking-tight"
+    >
       <motion.img
         src={leavesImage}
         alt="Leaves"
@@ -43,7 +51,7 @@ const SecondLifeBetterLife = () => {
           </motion.span>
         </AnimatePresence>
       </Badge>
-    </div>
+    </motion.div>
   )
 }
 

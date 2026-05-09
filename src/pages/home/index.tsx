@@ -1,23 +1,15 @@
 import { motion } from "motion/react"
 import { useNavigate } from "react-router-dom"
-
 import Section from "@/components/layout/section"
 import SectionTitle from "@/components/layout/section/section-title"
 import WasteTypeCard from "@/pages/home/components/waste-type-card"
-
 import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
 import Button from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-
-// import recycleTrash from "@/assets/images/recycle-trash.png"
-// import { features } from "@/pages/home/data/features"
-
 import person from "@/assets/images/person.jpg"
-
 import { statistics } from "@/pages/home/data/statistics"
 import { wasteTypes } from "@/pages/home/data/waste-types"
 import { itemVariants } from "@/utils/variants"
-
 import RecycleLogoAnimation from "@/pages/home/components/recycle-animation"
 
 const Home = () => {
@@ -26,15 +18,21 @@ const Home = () => {
   return (
     <>
       <Section id="hero" className="min-h-[70svh]">
-        <SecondLifeBetterLife />
-        <SectionTitle as="h1" className="leading-tight">
+        <SecondLifeBetterLife withAnimation />
+        <SectionTitle withAnimation as="h1" className="leading-tight">
           EcoSort AI. Your Digital Partner for Sustainable Living.
         </SectionTitle>
-        <p className="w-3/4 leading-tight tracking-tight text-muted-foreground">
+        <motion.p
+          variants={itemVariants}
+          className="w-3/4 leading-tight tracking-tight text-muted-foreground"
+        >
           Asisten digital Anda sebagai solusi praktis identifikasi sampah dan
           panduan daur ulang — Second Life Better Life!
-        </p>
-        <div className="mt-4 flex items-center gap-4">
+        </motion.p>
+        <motion.div
+          variants={itemVariants}
+          className="mt-4 flex items-center gap-4"
+        >
           <Button
             variant="outline"
             className="cursor-pointer"
@@ -46,7 +44,7 @@ const Home = () => {
           <Button size="lg" onClick={() => navigate("upload")}>
             Pilih Gambar
           </Button>
-        </div>
+        </motion.div>
       </Section>
 
       <Section
@@ -56,21 +54,26 @@ const Home = () => {
         <div className="rounded-2xl sm:rounded-4xl md:grid md:grid-cols-2">
           <div className="flex flex-col gap-4 px-8 py-12 sm:p-10">
             <SectionTitle
+              withAnimation
               as="h2"
               className="flex w-full items-center gap-4 text-left md:gap-4 lg:gap-8"
             >
               Tentang Ecosort <RecycleLogoAnimation />
             </SectionTitle>
-            <p className="text-left text-lg leading-tight tracking-tight text-muted-foreground">
+            <motion.p
+              variants={itemVariants}
+              className="text-left text-lg leading-tight tracking-tight text-muted-foreground"
+            >
               Kami menghadirkan solusi digital masa kini. Dirancang khusus untuk
               menjembatani celah antara teknologi dan kelestarian lingkungan.
               Dengan memanfaatkan sistem klasifikasi berbasis kecerdasan buatan,
               platform ini memandu Anda untuk memilah dan mendaur ulang berbagai
               jenis sampah domestik secara jauh lebih efisien.
-            </p>
+            </motion.p>
           </div>
           <div className="flex items-center p-8 pb-16 sm:p-10">
-            <img
+            <motion.img
+              variants={itemVariants}
               src={person}
               alt="Gambar"
               className="mx-auto h-full w-full rounded-2xl object-cover"
@@ -101,10 +104,7 @@ const Home = () => {
         </div>
       </Section>
 
-      <Section
-        id="waste-type"
-        className="min-h-svh rounded-4xl border-4 border-dashed"
-      >
+      <Section id="waste-type" className="min-h-svh">
         <Badge>Jenis Sampah yang Diidentifikasi</Badge>
         <SectionTitle as="h2">
           Kenali lebih dalam jenis-jenis sampah untuk proses pemilahan dan daur

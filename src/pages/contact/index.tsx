@@ -1,24 +1,25 @@
 import Section from "@/components/layout/section"
 import SectionTitle from "@/components/layout/section/section-title"
-// import { PhoneCall } from "lucide-react"
 import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
 import ContactCard from "@/pages/contact/components/contact-card"
 import { Mail, MapPin, PhoneCall } from "lucide-react"
+import { motion } from "motion/react"
+import { itemVariants } from "@/utils/variants"
 
 const Contact = () => {
   return (
     <Section className="min-h-[80svh] gap-4 px-4 md:gap-6 md:px-8">
-      <SecondLifeBetterLife />
-
-      <SectionTitle className="w-full px-2 sm:px-4 md:px-6">
+      <SecondLifeBetterLife withAnimation />
+      <SectionTitle withAnimation className="w-full px-2 sm:px-4 md:px-6">
         Hubungi Kami Kapan Saja.
       </SectionTitle>
-
-      <p className="w-full text-sm leading-tight tracking-tight text-muted-foreground sm:w-3/4 sm:text-base">
+      <motion.p
+        variants={itemVariants}
+        className="w-full text-sm leading-tight tracking-tight text-muted-foreground sm:w-3/4 sm:text-base"
+      >
         Jika menemukan kendala atau membutuhkan panduan lebih lanjut, jangan
         ragu untuk menghubungi kami.
-      </p>
-
+      </motion.p>
       <div className="my-6 grid w-full grid-cols-1 items-center justify-center gap-4 sm:grid-cols-3 sm:gap-6">
         <ContactCard
           icon={PhoneCall}
