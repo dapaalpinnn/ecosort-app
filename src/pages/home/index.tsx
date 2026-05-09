@@ -18,7 +18,7 @@ const Home = () => {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
-      <Section id="hero" className="min-h-[80svh]">
+      <Section id="hero" className="min-h-[50svh]">
         <SecondLifeBetterLife />
         <SectionTitle as="h1" className="leading-tight">
           EcoSort AI. Your Digital Partner for Sustainable Living.
@@ -42,7 +42,11 @@ const Home = () => {
         </div>
       </Section>
 
-      <Section id="about" contentClassName="lg:max-w-4xl xl:max-w-5xl">
+      <Section
+        id="about"
+        contentClassName="lg:max-w-4xl xl:max-w-5xl"
+        className="min-h-[80svh]"
+      >
         <div className="bg-primary sm:rounded-4xl md:grid md:grid-cols-2">
           <div className="flex flex-col gap-4 px-8 py-12 sm:p-10">
             <SectionTitle

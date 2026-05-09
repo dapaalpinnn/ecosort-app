@@ -6,15 +6,15 @@ export type NavigationSection = {
 export const navigationData: NavigationSection[] = [
   {
     title: "Beranda",
-    href: "#",
+    href: "/",
   },
   {
-    title: "Tentang EcoSort",
-    href: "#about",
+    title: "Artikel",
+    href: "/article",
   },
   {
-    title: "Layanan",
-    href: "#features",
+    title: "Kontak",
+    href: "/contact",
   },
   {
     title: "Fitur",

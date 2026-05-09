@@ -1,18 +1,19 @@
 "use client"
 
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-} from "@/components/ui/navigation-menu"
 import { cn } from "@/lib/utils"
 import { TextAlignJustify, X, ArrowUpRight } from "lucide-react"
 import { AnimatePresence, motion } from "motion/react"
 import { useCallback, useEffect, useState } from "react"
 import { navigationData } from "@/components/layout/navbar/utils"
-import ecosortImage from "@/assets/brand/ecosort.png"
 import { NavLink } from "react-router-dom"
+
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuList,
+} from "@/components/ui/navigation-menu"
+
+import ecosortImage from "@/assets/brand/ecosort.png"
 
 const Navbar = () => {
   const [sticky, setSticky] = useState(false)
@@ -61,12 +62,12 @@ const Navbar = () => {
               <NavigationMenuList className="flex gap-0">
                 {navigationData.map((navItem) => (
                   <NavigationMenuItem key={navItem.title}>
-                    <NavigationMenuLink
-                      href={navItem.href}
+                    <NavLink
+                      to={navItem.href}
                       className="rounded-full px-2 py-2 text-[16px] tracking-tight text-muted-foreground outline outline-transparent transition hover:text-primary hover:shadow-xs hover:outline-border lg:px-4"
                     >
                       {navItem.title}
-                    </NavigationMenuLink>
+                    </NavLink>
                   </NavigationMenuItem>
                 ))}
               </NavigationMenuList>
