@@ -56,13 +56,13 @@ const Home = () => {
             <SectionTitle
               withAnimation
               as="h2"
-              className="flex w-full items-center gap-4 text-left md:gap-4 lg:gap-8"
+              className="flex w-full items-center gap-4 text-left md:justify-between md:gap-4 md:text-[26px] lg:justify-start lg:gap-8 lg:text-[32px]"
             >
               Tentang Ecosort <RecycleLogoAnimation />
             </SectionTitle>
             <motion.p
               variants={itemVariants}
-              className="text-left text-lg leading-tight tracking-tight text-muted-foreground"
+              className="justify-between text-left text-lg leading-tight tracking-tight text-muted-foreground"
             >
               Kami menghadirkan solusi digital masa kini. Dirancang khusus untuk
               menjembatani celah antara teknologi dan kelestarian lingkungan.
