@@ -18,8 +18,8 @@ const PrivacyPolicy = () => {
         <ol className="list-decimal space-y-6 font-semibold">
           {policies.map((policy) => (
             <li
-              key={policy.id}
-              id={policy.id}
+              key={policy.title}
+              id={policy.title}
               className="ml-6 text-left text-lg md:text-xl"
             >
               <p className="tracking-tight">{policy.title}</p>

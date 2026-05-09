@@ -18,11 +18,11 @@ const TermsCondition = () => {
         <ol className="list-decimal space-y-6 font-semibold">
           {terms.map((term) => (
             <li
-              key={term.id}
-              id={term.id}
+              key={term.title}
+              id={term.title}
               className="ml-6 text-left text-lg md:text-xl"
             >
-              <p className="font-bold tracking-tight">{term.title}</p>
+              <p className="tracking-tight">{term.title}</p>
               {term.content && (
                 <p className="mt-2 font-normal">{term.content}</p>
               )}
