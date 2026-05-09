@@ -11,14 +11,16 @@ import { Badge } from "@/components/ui/badge"
 import { statistics } from "@/pages/home/data/statistics"
 import { useNavigate } from "react-router-dom"
 // import { features } from "@/pages/home/data/features"
-// import { wasteTypes } from "@/pages/home/data/waste-types"
+
+import WasteTypeCard from "@/pages/home/components/waste-type-card"
+import { wasteTypes } from "@/pages/home/data/waste-types"
 
 const Home = () => {
   const navigate = useNavigate()
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center">
-      <Section id="hero" className="min-h-[50svh]">
+      <Section id="hero" className="min-h-[60svh]">
         <SecondLifeBetterLife />
         <SectionTitle as="h1" className="leading-tight">
           EcoSort AI. Your Digital Partner for Sustainable Living.
@@ -45,7 +47,7 @@ const Home = () => {
       <Section
         id="about"
         contentClassName="lg:max-w-4xl xl:max-w-5xl"
-        className="min-h-[80svh]"
+        className="min-h-[75svh]"
       >
         <div className="bg-primary sm:rounded-4xl md:grid md:grid-cols-2">
           <div className="flex flex-col gap-4 px-8 py-12 sm:p-10">
@@ -103,22 +105,33 @@ const Home = () => {
         </div>
       </Section>
 
-      <Section id="features" className="py-18 lg:py-28">
-        <Badge>Bagaimana kami membantu?</Badge>
-        <SectionTitle as="h2">
-          Solusi digital untuk mempermudah Anda memilah dan mendaur ulang sampah
-          secara efisien.
-        </SectionTitle>
-        {/* <ScrollHorizontal items={features} /> */}
-      </Section>
-
-      <Section id="waste-type">
+      <Section id="waste-type" className="min-h-svh">
         <Badge>Jenis Sampah yang Diidentifikasi</Badge>
         <SectionTitle as="h2">
           Kenali lebih dalam jenis-jenis sampah untuk proses pemilahan dan daur
           ulang yang lebih tepat.
         </SectionTitle>
-        {/* <ScrollHorizontal items={wasteTypes} /> */}
+        <div className="grid grid-cols-1 gap-4 py-8 sm:grid-cols-2 lg:grid-cols-3">
+          {wasteTypes.map((wasteType) => (
+            <motion.div
+              key={wasteType.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
+              <WasteTypeCard title={wasteType.label} image={wasteType.image} />
+            </motion.div>
+          ))}
+        </div>
+      </Section>
+
+      <Section id="features" className="min-h-svh py-18 lg:py-28">
+        <Badge>Bagaimana kami membantu?</Badge>
+        <SectionTitle as="h2">
+          Solusi digital untuk mempermudah Anda memilah dan mendaur ulang sampah
+          secara efisien.
+        </SectionTitle>
       </Section>
     </div>
   )
