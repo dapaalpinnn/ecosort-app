@@ -1,11 +1,11 @@
 import Navbar from "@/components/layout/navbar"
 import Home from "@/pages/home"
-// import Article from "@/pages/article"
+import Article from "@/pages/article"
 import { Routes, Route } from "react-router-dom"
 import Upload from "@/pages/upload"
 import Contact from "@/pages/contact"
-import TermsCondition from "@/pages/terms-and-conditions"
-// import PrivacyPolicy from "./pages/privacy-policy"
+
+import Footer from "@/components/layout/footer"
 
 export function App() {
   return (
@@ -14,11 +14,12 @@ export function App() {
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/article" element={<TermsCondition />} />
+          <Route path="/article" element={<Article />} />
           <Route path="/upload" element={<Upload />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
+      <Footer />
     </>
   )
 }

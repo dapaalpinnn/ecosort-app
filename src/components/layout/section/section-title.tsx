@@ -1,22 +1,35 @@
 import { cn } from "@/lib/utils"
+import { motion, type MotionProps } from "motion/react"
 import type { ComponentProps } from "react"
+import { itemVariants } from "@/utils/variants"
 
-type SectionTitleProps = ComponentProps<"h2"> & {
-  as?: "h1" | "h2"
-  color?: "primary" | "secondary"
-}
+type SectionTitleProps = ComponentProps<"h2"> &
+  MotionProps & {
+    as?: "h1" | "h2"
+    color?: "primary" | "secondary"
+    withAnimation?: boolean
+  }
 
 const colorVariants = {
   primary: "text-primary",
   secondary: "text-background",
 }
 
+const motionTags = {
+  h1: motion.h1,
+  h2: motion.h2,
+}
+
 const SectionTitle = ({
-  as: Tag = "h2",
+  as = "h2",
   color = "primary",
   children,
   className,
+  withAnimation = false,
+  ...props
 }: SectionTitleProps) => {
+  const Tag = motionTags[as]
+
   return (
     <Tag
       className={cn(
@@ -24,6 +37,8 @@ const SectionTitle = ({
         colorVariants[color],
         className
       )}
+      variants={withAnimation ? itemVariants : undefined}
+      {...props}
     >
       {children}
     </Tag>

@@ -1,4 +1,4 @@
-import Section from "@/components/layout/section/section"
+import Section from "@/components/layout/section"
 import SectionTitle from "@/components/layout/section/section-title"
 
 import SecondLifeBetterLife2 from "@/components/ui/second-life-better-life-2"
