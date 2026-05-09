@@ -1,16 +1,12 @@
 // components/layout/section/section.tsx
 import { cn } from "@/lib/utils"
-import { motion, type Variants } from "motion/react"
+import { sectionChildVariants } from "@/utils/variants"
+import { motion } from "motion/react"
 import { type ComponentProps, Children } from "react"
 
 type PageSectionProps = ComponentProps<"section"> & {
   contentClassName?: string
   animate?: boolean
-}
-
-const childVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 }
 
 const Section = ({
@@ -37,13 +33,13 @@ const Section = ({
         )}
         initial={animate ? "hidden" : undefined}
         whileInView={animate ? "visible" : undefined}
-        viewport={{ once: true, amount: 0.75 }}
+        viewport={{ once: true, amount: 0.8 }}
         transition={{ staggerChildren: 0.15 }}
       >
         {animate
           ? Children.map(children, (child) => (
               <motion.div
-                variants={childVariants}
+                variants={sectionChildVariants}
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 className="flex items-center justify-center"
               >

@@ -1,26 +1,31 @@
+import { motion } from "motion/react"
+import { useNavigate } from "react-router-dom"
+
 import Section from "@/components/layout/section/section"
 import SectionTitle from "@/components/layout/section/section-title"
+import WasteTypeCard from "@/pages/home/components/waste-type-card"
+
 import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
 import Button from "@/components/ui/button"
-
-import recycleImage from "@/assets/brand/second-life-better-life.png"
-import recycleTrash from "@/assets/images/recycle-trash.png"
-
-import { motion } from "motion/react"
 import { Badge } from "@/components/ui/badge"
-import { statistics } from "@/pages/home/data/statistics"
-import { useNavigate } from "react-router-dom"
+
+// import recycleTrash from "@/assets/images/recycle-trash.png"
 // import { features } from "@/pages/home/data/features"
 
-import WasteTypeCard from "@/pages/home/components/waste-type-card"
+import person from "@/assets/images/person.jpg"
+
+import { statistics } from "@/pages/home/data/statistics"
 import { wasteTypes } from "@/pages/home/data/waste-types"
+import { itemVariants } from "@/utils/variants"
+
+import RecycleImage from "@/pages/home/components/recycle-image"
 
 const Home = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center">
-      <Section id="hero" className="min-h-[60svh]">
+    <>
+      <Section id="hero" className="min-h-[70svh]">
         <SecondLifeBetterLife />
         <SectionTitle as="h1" className="leading-tight">
           EcoSort AI. Your Digital Partner for Sustainable Living.
@@ -49,21 +54,14 @@ const Home = () => {
         contentClassName="lg:max-w-4xl xl:max-w-5xl"
         className="min-h-[75svh]"
       >
-        <div className="bg-primary sm:rounded-4xl md:grid md:grid-cols-2">
+        <div className="sm:rounded-4xl md:grid md:grid-cols-2">
           <div className="flex flex-col gap-4 px-8 py-12 sm:p-10">
             <SectionTitle
               as="h2"
-              color="secondary"
+              // color="secondary"
               className="flex w-full items-center gap-4 text-left md:gap-4 lg:gap-8"
             >
-              Tentang Ecosort{" "}
-              <motion.img
-                animate={{ rotate: 360 }}
-                transition={{ repeat: Infinity, duration: 5, ease: "linear" }}
-                src={recycleImage}
-                alt="Recycle"
-                className="w-10 invert sm:w-12 lg:w-16"
-              />
+              Tentang Ecosort <RecycleImage />
             </SectionTitle>
             <p className="text-left text-lg leading-tight tracking-tight text-muted-foreground">
               Kami menghadirkan solusi digital masa kini. Dirancang khusus untuk
@@ -75,7 +73,7 @@ const Home = () => {
           </div>
           <div className="flex items-center p-8 pb-16 sm:p-10">
             <img
-              src={recycleTrash}
+              src={person}
               alt="Gambar"
               className="mx-auto h-full w-full rounded-2xl object-cover"
             />
@@ -113,13 +111,7 @@ const Home = () => {
         </SectionTitle>
         <div className="grid grid-cols-1 gap-4 py-8 sm:grid-cols-2 lg:grid-cols-3">
           {wasteTypes.map((wasteType) => (
-            <motion.div
-              key={wasteType.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-            >
+            <motion.div key={wasteType.id} variants={itemVariants}>
               <WasteTypeCard title={wasteType.label} image={wasteType.image} />
             </motion.div>
           ))}
@@ -133,7 +125,7 @@ const Home = () => {
           secara efisien.
         </SectionTitle>
       </Section>
-    </div>
+    </>
   )
 }
 

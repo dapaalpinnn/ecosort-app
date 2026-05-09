@@ -4,6 +4,7 @@ import Article from "@/pages/article"
 import { Routes, Route } from "react-router-dom"
 import Upload from "@/pages/upload"
 import Contact from "@/pages/contact"
+import Footer from "@/components/layout/footer"
 
 export function App() {
   return (
@@ -17,6 +18,7 @@ export function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
+      <Footer />
     </>
   )
 }
