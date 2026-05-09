@@ -7,6 +7,7 @@ import Contact from "@/pages/contact"
 
 import Footer from "@/components/layout/footer"
 import PrivacyPolicy from "@/pages/privacy-policy"
+import TermsCondition from "@/pages/terms-and-conditions"
 
 export function App() {
   return (
@@ -19,6 +20,7 @@ export function App() {
           <Route path="/upload" element={<Upload />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-and-conditions" element={<TermsCondition />} />
         </Routes>
       </main>
       <Footer />

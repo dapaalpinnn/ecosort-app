@@ -1,48 +1,46 @@
 import Section from "@/components/layout/section"
 import SectionTitle from "@/components/layout/section/section-title"
-
 import SecondLifeBetterLife2 from "@/components/ui/second-life-better-life-2"
-
 import { terms } from "@/pages/terms-and-conditions/terms-content"
 
 const TermsCondition = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center">
-      <Section id="head" className="min-h-[20svh]">
-        <SecondLifeBetterLife2 />
-      </Section>
+    <Section className="py-20 pt-16">
+      <SecondLifeBetterLife2 />
+      <SectionTitle
+        as="h2"
+        className="mx-auto my-10 text-center font-serif text-4xl leading-tight"
+      >
+        Syarat dan Ketentuan
+      </SectionTitle>
 
-      <Section id="terms" animate={false} className="wy-5 min-h-screen">
-        <SectionTitle
-          as="h1"
-          className="mx-auto my-10 w-125 text-center leading-tight"
-        >
-          Syarat dan Ketentuan.
-        </SectionTitle>
-
-        <div className="min-h-screen w-full">
+      <div className="min-h-screen px-6 font-serif">
+        <ol className="list-decimal space-y-6 font-semibold">
           {terms.map((term) => (
-            <div key={term.id} id={term.id} className="mb-5">
-              <p className="text-justify text-lg font-bold">{term.title}</p>
-
+            <li
+              key={term.id}
+              id={term.id}
+              className="ml-6 text-left text-lg md:text-xl"
+            >
+              <p className="font-bold tracking-tight">{term.title}</p>
               {term.content && (
-                <p className="mt-1 ml-5 text-justify">{term.content}</p>
+                <p className="mt-2 font-normal">{term.content}</p>
               )}
-
-              {term.children?.map((child, index) => (
-                <div key={index}>
-                  <p className="mt-1 ml-4 text-justify text-lg font-bold">
-                    {child.subtitle}
-                  </p>
-
-                  <p className="mt-1 ml-12 text-justify">{child.content}</p>
-                </div>
-              ))}
-            </div>
+              {term.children && term.children.length > 0 && (
+                <ul className="mt-2 ml-6 list-disc space-y-2">
+                  {term.children.map((child, index) => (
+                    <li key={index}>
+                      <p className="font-bold">{child.subtitle}</p>
+                      <p className="mt-1 font-normal">{child.content}</p>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
           ))}
-        </div>
-      </Section>
-    </div>
+        </ol>
+      </div>
+    </Section>
   )
 }
 
