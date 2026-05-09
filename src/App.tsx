@@ -6,6 +6,7 @@ import Upload from "@/pages/upload"
 import Contact from "@/pages/contact"
 
 import Footer from "@/components/layout/footer"
+import PrivacyPolicy from "@/pages/privacy-policy"
 
 export function App() {
   return (
@@ -17,6 +18,7 @@ export function App() {
           <Route path="/article" element={<Article />} />
           <Route path="/upload" element={<Upload />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         </Routes>
       </main>
       <Footer />

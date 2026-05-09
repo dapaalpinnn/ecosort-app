@@ -13,7 +13,7 @@ export const footerLinks = [
     title: "Bantuan",
     links: [
       { label: "Syarat dan Ketentuan", to: "/terms" },
-      { label: "Kebijakan Privasi", to: "/privacy" },
+      { label: "Kebijakan Privasi", to: "/privacy-policy" },
     ],
   },
 ]
