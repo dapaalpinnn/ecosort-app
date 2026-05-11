@@ -6,23 +6,23 @@ type Statistics = {
 
 export const statistics: Statistics[] = [
   {
-    value: 25.099,
+    value: 144839,
     unit: "tons",
-    description: "Sampah Dihasilkan Setiap Tahun",
+    description: "Sampah Dihasilkan Setiap Hari",
   },
   {
-    value: 60,
+    value: 75,
     unit: "%",
-    description: "Didominasi Sampah Organik",
+    description: "Sampah Belum Terkelola",
   },
   {
-    value: 17,
+    value: 83.75,
     unit: "%",
-    description: "Merupakan Sampah Plastik",
+    description: "Sampah Rumah Tangga Belum Terpilah",
   },
   {
-    value: 35,
+    value: 40.76,
     unit: "%",
-    description: "Masih Belum Terkelola",
+    description: "Sampah Sisa Makanan",
   },
 ]

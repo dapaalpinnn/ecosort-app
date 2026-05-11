@@ -11,6 +11,7 @@ import { statistics } from "@/pages/home/data/statistics"
 import { wasteTypes } from "@/pages/home/data/waste-types"
 import { itemVariants } from "@/utils/variants"
 import RecycleLogoAnimation from "@/pages/home/components/recycle-animation"
+import Counter from "./components/counter"
 
 const Home = () => {
   const navigate = useNavigate()
@@ -92,9 +93,9 @@ const Home = () => {
         </SectionTitle>
         <div className="grid grid-cols-2 py-6 lg:grid-cols-4 lg:py-14">
           {statistics.map((statistic) => (
-            <div key={statistic.value} className="flex flex-col gap-2 p-4">
-              <h3 className="text-xl font-medium tracking-tighter sm:text-2xl lg:text-4xl">
-                {statistic.value} {statistic.unit}
+            <div key={statistic.value} className="flex flex-col items-center gap-2 p-4">
+              <h3 className="w-50 text-xl font-medium tracking-tighter sm:text-2xl lg:text-4xl">
+                <Counter value={statistic.value} /> {statistic.unit}
               </h3>
               <p className="text-sm leading-tight tracking-tight md:text-base">
                 {statistic.description}
