@@ -1,7 +1,10 @@
+import { type PaginationData } from "@/types/pagination.types"
+
 /**
  * article data structure
  */
 export interface ArticleData {
+  id: number
   keyword: string
   title: string
   url: string
@@ -16,4 +19,5 @@ export interface ArticleData {
 export interface ArticleDataResponse {
   success: boolean
   data: ArticleData[]
+  pagination: PaginationData
 }

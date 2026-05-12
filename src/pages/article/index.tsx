@@ -8,17 +8,24 @@ import { AxiosError } from "axios"
 import { formatDate } from "@/utils/formated-date"
 import { ArrowUpRight } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
+import { useSearchParams } from "react-router-dom"
+import AppPagination from "@/common/app-pagination"
 
 const Article = () => {
   const [articles, setArticles] = useState<ArticleData[]>([])
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
+  const [totalPages, setTotalPages] = useState<number>(1)
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  const page: number = Number(searchParams.get("page") || 1)
 
   useEffect(() => {
     const getArticles = async () => {
       try {
-        const response = await fetchArticles()
+        const response = await fetchArticles(page, 10)
         setArticles(response.data)
+        setTotalPages(response.pagination.totalPages)
       } catch (error: unknown) {
         setError(
           error instanceof AxiosError ? error.message : "Terjadi kesalahan"
@@ -29,7 +36,7 @@ const Article = () => {
     }
 
     getArticles()
-  }, [])
+  }, [page])
 
   if (loading)
     return <p className="mt-6 text-center text-muted-foreground">Loading...</p>
@@ -57,7 +64,7 @@ const Article = () => {
             className="max-w-sm overflow-hidden rounded-xl border bg-background text-left md:flex md:max-w-xl md:items-center md:justify-start lg:max-w-4xl"
           >
             <img
-              src={article.image}
+              src={article.image || "https://picsum.photos/300/200?random=1"}
               alt={article.title}
               className="h-56 w-full object-cover md:w-56 lg:w-56"
             />
@@ -91,6 +98,13 @@ const Article = () => {
           </div>
         ))}
       </div>
+      <AppPagination
+        page={page}
+        totalPages={totalPages}
+        onPageChange={(newPage) => {
+          setSearchParams({ page: String(newPage) })
+        }}
+      />
     </Section>
   )
 }
