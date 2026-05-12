@@ -8,10 +8,12 @@ import Contact from "@/pages/contact"
 import Footer from "@/components/layout/footer"
 import PrivacyPolicy from "@/pages/privacy-policy"
 import TermsCondition from "@/pages/terms-and-conditions"
+import ScrollToTop from "@/common/scroll-to-top"
 
 export function App() {
   return (
     <>
+      <ScrollToTop />
       <Navbar />
       <main className="flex-1">
         <Routes>

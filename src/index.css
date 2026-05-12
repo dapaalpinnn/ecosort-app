@@ -102,3 +102,7 @@
 .inspeksi {
   border: 1px solid red;
 }
+
+::selection {
+  @apply bg-primary text-primary-foreground;
+}

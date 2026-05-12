@@ -23,7 +23,9 @@ const PrivacyPolicy = () => {
               className="ml-6 text-left text-lg md:text-xl"
             >
               <p className="tracking-tight">{policy.title}</p>
-              <p className="mt-2 font-normal">{policy.content}</p>
+              <p className="mt-2 font-normal text-muted-foreground">
+                {policy.content}
+              </p>
             </li>
           ))}
         </ol>

@@ -24,14 +24,18 @@ const TermsCondition = () => {
             >
               <p className="tracking-tight">{term.title}</p>
               {term.content && (
-                <p className="mt-2 font-normal">{term.content}</p>
+                <p className="mt-2 font-normal text-muted-foreground">
+                  {term.content}
+                </p>
               )}
               {term.children && term.children.length > 0 && (
                 <ul className="mt-2 ml-6 list-disc space-y-2">
                   {term.children.map((child, index) => (
                     <li key={index}>
-                      <p className="font-bold">{child.subtitle}</p>
-                      <p className="mt-1 font-normal">{child.content}</p>
+                      <p className="tracking-tight">{child.subtitle}</p>
+                      <p className="mt-1 font-normal text-muted-foreground">
+                        {child.content}
+                      </p>
                     </li>
                   ))}
                 </ul>
