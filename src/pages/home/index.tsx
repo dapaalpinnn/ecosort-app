@@ -50,7 +50,7 @@ const Home = () => {
 
       <Section
         id="about"
-        className="min-h-[75svh] rounded-4xl border-4 border-dashed lg:max-w-4xl xl:max-w-5xl"
+        className="min-h-[50svh] rounded-4xl border-4 border-dashed lg:max-w-4xl xl:max-w-5xl"
       >
         <div className="rounded-2xl sm:rounded-4xl md:grid md:grid-cols-2">
           <div className="flex flex-col gap-4 px-8 py-12 sm:p-10">
@@ -93,11 +93,14 @@ const Home = () => {
         </SectionTitle>
         <div className="grid grid-cols-2 py-6 lg:grid-cols-4 lg:py-14">
           {statistics.map((statistic) => (
-            <div key={statistic.value} className="flex flex-col items-center gap-2 p-4">
-              <h3 className="w-50 text-xl font-medium tracking-tighter sm:text-2xl lg:text-4xl">
+            <div
+              key={statistic.value}
+              className="flex flex-col items-center gap-2 p-4 lg:p-0"
+            >
+              <h3 className="w-full text-xl font-medium tracking-tighter sm:text-2xl md:text-3xl">
                 <Counter value={statistic.value} /> {statistic.unit}
               </h3>
-              <p className="text-sm leading-tight tracking-tight md:text-base">
+              <p className="text-sm leading-tight tracking-tight text-muted-foreground md:text-base">
                 {statistic.description}
               </p>
             </div>
