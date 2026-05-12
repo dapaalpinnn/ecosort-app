@@ -5,6 +5,9 @@ import SectionTitle from "@/components/layout/section/section-title"
 import { fetchArticles } from "@/services/article-service"
 import { type ArticleData } from "@/types/article.types"
 import { AxiosError } from "axios"
+import { formatDate } from "@/utils/formated-date"
+import { ArrowUpRight } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
 
 const Article = () => {
   const [articles, setArticles] = useState<ArticleData[]>([])
@@ -28,8 +31,10 @@ const Article = () => {
     getArticles()
   }, [])
 
-  if (loading) return <p>Loading...</p>
-  if (error) return <p>{error}</p>
+  if (loading)
+    return <p className="mt-6 text-center text-muted-foreground">Loading...</p>
+  if (error)
+    return <p className="mt-6 text-center text-muted-foreground">{error}</p>
 
   return (
     <Section>
@@ -45,33 +50,42 @@ const Article = () => {
       {!loading && articles.length === 0 && !error && (
         <p className="mt-6 text-muted-foreground">Artikel tidak ditemukan.</p>
       )}
-      <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-8 grid grid-cols-1 gap-6">
         {articles.map((article) => (
           <div
             key={article.url}
-            className="overflow-hidden rounded-xl border bg-background"
+            className="max-w-sm overflow-hidden rounded-xl border bg-background text-left md:flex md:max-w-xl md:items-center md:justify-start lg:max-w-4xl"
           >
             <img
               src={article.image}
               alt={article.title}
-              className="h-56 w-full object-cover"
+              className="h-56 w-full object-cover md:w-56 lg:w-56"
             />
-            <div className="space-y-3 p-4">
+            <div className="space-y-3 p-4 tracking-tight md:px-6">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <p>{article.source}</p>
-                <span>•</span>
-                <p>{article.date}</p>
+                <Badge
+                  className="p-2 text-[14px] text-muted-foreground"
+                  variant={"outline"}
+                >
+                  {article.source}
+                </Badge>
+                <Badge
+                  className="p-2 text-[14px] text-muted-foreground"
+                  variant={"outline"}
+                >
+                  {formatDate(article.date)}
+                </Badge>
               </div>
-              <h2 className="line-clamp-2 text-xl font-semibold">
+              <h2 className="line-clamp-2 font-serif text-xl font-medium tracking-tighter lg:text-3xl">
                 {article.title}
               </h2>
               <a
                 href={article.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block text-sm font-medium underline"
+                className="mt-4 flex w-fit items-center justify-center gap-1 bg-primary px-3 py-1.5 text-sm font-medium text-accent md:rounded-full lg:px-4"
               >
-                Baca Artikel
+                Baca sekarang <ArrowUpRight />
               </a>
             </div>
           </div>
