@@ -4,10 +4,9 @@ import axios, { type AxiosResponse } from "axios"
  * axios client instance
  */
 export const apiClient = axios.create({
-  baseURL: "http://localhost:3000/api",
-  headers: {
-    "Content-Type": "application/json",
-  },
+  baseURL: `${import.meta.env.VITE_SERVER_URL}/api`,
+  withCredentials: true,
+  headers: { "Content-Type": "application/json" },
 })
 
 /**

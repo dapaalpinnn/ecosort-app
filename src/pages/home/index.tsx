@@ -12,6 +12,7 @@ import { wasteTypes } from "@/pages/home/data/waste-types"
 import { itemVariants } from "@/utils/variants"
 import RecycleLogoAnimation from "@/pages/home/components/recycle-animation"
 import Counter from "./components/counter"
+import { ArrowUpRight } from "lucide-react"
 
 const Home = () => {
   const navigate = useNavigate()
@@ -35,14 +36,17 @@ const Home = () => {
           className="mt-4 flex items-center gap-4"
         >
           <Button
-            variant="outline"
             className="cursor-pointer"
             size="lg"
-            onClick={() => navigate("article")}
+            onClick={() => navigate("/auth/sign-up")}
           >
-            Bacaan Artikel
+            Daftar Sekarang <ArrowUpRight size={50} />
           </Button>
-          <Button size="lg" onClick={() => navigate("upload")}>
+          <Button
+            variant={"outline"}
+            size="lg"
+            onClick={() => navigate("upload")}
+          >
             Pilih Gambar
           </Button>
         </motion.div>
