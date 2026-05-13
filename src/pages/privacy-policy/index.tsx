@@ -9,12 +9,12 @@ const PrivacyPolicy = () => {
       <SecondLifeBetterLife2 />
       <SectionTitle
         as="h2"
-        className="mx-auto my-10 text-center font-serif text-4xl leading-tight"
+        className="mx-auto my-10 text-center text-4xl leading-tight"
       >
         Kebijakan Privasi
       </SectionTitle>
 
-      <div className="min-h-screen px-6 font-serif">
+      <div className="min-h-screen px-6">
         <ol className="list-decimal space-y-6 font-semibold">
           {policies.map((policy) => (
             <li

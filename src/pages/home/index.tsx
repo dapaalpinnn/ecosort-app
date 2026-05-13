@@ -12,9 +12,30 @@ import { wasteTypes } from "@/pages/home/data/waste-types"
 import { itemVariants } from "@/utils/variants"
 import RecycleLogoAnimation from "@/pages/home/components/recycle-animation"
 import Counter from "./components/counter"
+import { useEffect } from "react"
 
 const Home = () => {
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const savedLocation = sessionStorage.getItem("lokasiUser");
+    if (savedLocation) return;
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const lokasiUser = {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        };
+        sessionStorage.setItem(
+          "lokasiUser",
+          JSON.stringify(lokasiUser)
+        );
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }, []);
 
   return (
     <>
