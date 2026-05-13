@@ -6,6 +6,7 @@ import {
   PaginationLink,
   PaginationNext,
 } from "@/components/ui/pagination"
+import { generatePagination } from "@/utils/generate-pagination"
 
 interface AppPaginationProps {
   page: number
@@ -20,11 +21,8 @@ const AppPagination = ({
 }: AppPaginationProps) => {
   const handleScrollToTop = () => {
     setTimeout(() => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      })
-    }, 200)
+      window.scrollTo({ top: 0, behavior: "instant" })
+    }, 500)
   }
 
   const handlePageChange = (newPage: number) => {
@@ -51,25 +49,24 @@ const AppPagination = ({
         </PaginationItem>
 
         {/* Page numbers */}
-        {Array.from({ length: totalPages }).map((_, index) => {
-          const pageNumber = index + 1
-
-          return (
-            <PaginationItem key={pageNumber}>
+        {generatePagination({ totalPages, page }).map((item, index) => (
+          <PaginationItem key={index}>
+            {item === "..." ? (
+              <span className="px-3 text-muted-foreground">...</span>
+            ) : (
               <PaginationLink
-                size="icon"
                 href="#"
-                isActive={page === pageNumber}
+                isActive={page === item}
                 onClick={(e) => {
                   e.preventDefault()
-                  handlePageChange(pageNumber)
+                  handlePageChange(Number(item))
                 }}
               >
-                {pageNumber}
+                {item}
               </PaginationLink>
-            </PaginationItem>
-          )
-        })}
+            )}
+          </PaginationItem>
+        ))}
 
         {/* Next */}
         <PaginationItem>
