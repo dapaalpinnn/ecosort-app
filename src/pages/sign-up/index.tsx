@@ -1,36 +1,41 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
-import Section from "@/components/layout/section"
-import { Input } from "@/components/ui/input"
-import Button from "@/components/ui/button"
-import { authClient } from "@/lib/auth-client"
-import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
-import { Field, FieldSet, FieldGroup, FieldLabel } from "@/components/ui/field"
-import SectionTitle from "@/components/layout/section/section-title"
 import { Link } from "react-router-dom"
+import { Input } from "@/components/ui/input"
+import { useState } from "react"
+import { authClient } from "@/lib/auth-client"
+import { Field, FieldSet, FieldGroup, FieldLabel } from "@/components/ui/field"
+import Button from "@/components/ui/button"
+import useRedirect from "@/hooks/use-redirect"
+import Section from "@/components/layout/section"
 import authImage from "@/assets/images/sign-up-image.png"
+import SectionTitle from "@/components/layout/section/section-title"
+import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
 
 const SignUp = () => {
-  const navigate = useNavigate()
-
   const [name, setName] = useState<string>("")
   const [email, setEmail] = useState<string>("")
   const [password, setPassword] = useState<string>("")
+  const [confirmPassword, setConfirmPassword] = useState<string>("")
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
+
+  useRedirect()
 
   const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setError(null)
 
-    // validation
-    if (!name || !email || !password) {
+    if (!name || !email || !password || !confirmPassword) {
       setError("Semua field wajib diisi")
       return
     }
 
     if (password.length < 8) {
       setError("Password minimal 8 karakter")
+      return
+    }
+
+    if (password !== confirmPassword) {
+      setError("Konfirmasi password tidak cocok")
       return
     }
 
@@ -48,11 +53,12 @@ const SignUp = () => {
         setError(error.statusText)
         return
       }
-
-      // redirect
-      navigate("/upload")
-    } catch (error: unknown) {
-      setError("Terjadi kesalahan server:" + error)
+    } catch (error) {
+      if (error instanceof Error) {
+        setError(error.message)
+      } else {
+        setError("Terjadi kesalahan server")
+      }
     } finally {
       setLoading(false)
     }
@@ -61,20 +67,16 @@ const SignUp = () => {
   return (
     <Section className="lg:max-w-6xl">
       <div className="grid w-full items-center gap-10 lg:grid-cols-2">
-        {/* LEFT SIDE */}
         <div className="flex flex-col items-center justify-center">
           <SecondLifeBetterLife />
-
           <SectionTitle as="h1" className="mt-4 lg:text-3xl">
             Selamat Datang di Ecosort AI!
           </SectionTitle>
-
           <form onSubmit={handleRegister} className="mt-8 w-full max-w-sm">
             <FieldSet>
               <FieldGroup>
                 <Field>
                   <FieldLabel htmlFor="name">Nama</FieldLabel>
-
                   <Input
                     id="name"
                     type="text"
@@ -83,11 +85,10 @@ const SignUp = () => {
                     onChange={(e) => setName(e.target.value)}
                   />
                 </Field>
-
                 <Field>
                   <FieldLabel htmlFor="email">Email</FieldLabel>
-
                   <Input
+                    required
                     id="email"
                     type="email"
                     placeholder="Masukkan email Anda"
@@ -95,10 +96,8 @@ const SignUp = () => {
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </Field>
-
                 <Field>
                   <FieldLabel htmlFor="password">Kata sandi</FieldLabel>
-
                   <Input
                     id="password"
                     type="password"
@@ -107,13 +106,20 @@ const SignUp = () => {
                     onChange={(e) => setPassword(e.target.value)}
                   />
                 </Field>
-
+                <Field>
+                  <FieldLabel htmlFor="confirm-password">Kata sandi</FieldLabel>
+                  <Input
+                    id="confirm-password"
+                    type="password"
+                    placeholder="Konfirmasi kata sandi Anda"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                  />
+                </Field>
                 {error && <p className="text-sm text-red-500">{error}</p>}
-
                 <Button type="submit" disabled={loading} className="w-full">
                   {loading ? "Mendaftarkan..." : "Daftar"}
                 </Button>
-
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   Dengan melanjutkan, Anda menyetujui{" "}
                   <Link to="/privacy-policy" className="underline">
@@ -125,12 +131,16 @@ const SignUp = () => {
                   </Link>{" "}
                   kami.
                 </p>
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  Sudah punya akun?{" "}
+                  <Link to="/auth/sign-in" className="underline">
+                    Masuk
+                  </Link>
+                </p>
               </FieldGroup>
             </FieldSet>
           </form>
         </div>
-
-        {/* RIGHT SIDE */}
         <div className="relative hidden overflow-hidden rounded-4xl lg:block">
           <img
             src={authImage}

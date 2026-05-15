@@ -13,9 +13,22 @@ import { itemVariants } from "@/utils/variants"
 import RecycleLogoAnimation from "@/pages/home/components/recycle-animation"
 import Counter from "./components/counter"
 import { ArrowUpRight } from "lucide-react"
+import { useAuth } from "@/hooks/use-auth"
+import { authClient } from "@/lib/auth-client"
 
 const Home = () => {
   const navigate = useNavigate()
+  const { isAuthenticated, isPending } = useAuth()
+
+  const handleLogout = async () => {
+    try {
+      await authClient.signOut()
+
+      navigate("/")
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   return (
     <>
@@ -35,20 +48,26 @@ const Home = () => {
           variants={itemVariants}
           className="mt-4 flex items-center gap-4"
         >
-          <Button
-            className="cursor-pointer"
-            size="lg"
-            onClick={() => navigate("/auth/sign-up")}
-          >
-            Daftar Sekarang <ArrowUpRight size={50} />
-          </Button>
-          <Button
-            variant={"outline"}
-            size="lg"
-            onClick={() => navigate("upload")}
-          >
-            Pilih Gambar
-          </Button>
+          {isPending ? (
+            <p>Loading...</p>
+          ) : !isAuthenticated ? (
+            <Button
+              className="cursor-pointer"
+              size="lg"
+              onClick={() => navigate("/auth/sign-in")}
+            >
+              Coba Sekarang <ArrowUpRight size={50} />
+            </Button>
+          ) : (
+            <>
+              <Button size="lg" onClick={() => navigate("/upload")}>
+                Pilih Gambar
+              </Button>
+              <Button variant={"destructive"} size="lg" onClick={handleLogout}>
+                Keluar
+              </Button>
+            </>
+          )}
         </motion.div>
       </Section>
 

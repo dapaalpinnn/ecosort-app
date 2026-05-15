@@ -38,7 +38,7 @@ const AppPagination = ({
           <PaginationPrevious
             size="lg"
             href="#"
-            onClick={(e) => {
+            onClick={(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
               e.preventDefault()
 
               if (page > 1) {
@@ -73,7 +73,7 @@ const AppPagination = ({
           <PaginationNext
             size="lg"
             href="#"
-            onClick={(e) => {
+            onClick={(e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
               e.preventDefault()
 
               if (page < totalPages) {

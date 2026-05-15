@@ -13,8 +13,9 @@ import Contact from "@/pages/contact"
 import PrivacyPolicy from "@/pages/privacy-policy"
 import TermsCondition from "@/pages/terms-and-conditions"
 
-import SignUp from "@/pages/signup"
-// import SignIn from "@/pages/signin"
+import SignUp from "@/pages/sign-up"
+import ProtectedRoute from "@/layouts/protected-route"
+import SignIn from "@/pages/sign-in"
 
 export function App() {
   return (
@@ -25,15 +26,23 @@ export function App() {
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/article" element={<Article />} />
-          <Route path="/upload" element={<Upload />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-and-conditions" element={<TermsCondition />} />
+
+          <Route
+            path="/upload"
+            element={
+              <ProtectedRoute>
+                <Upload />
+              </ProtectedRoute>
+            }
+          />
         </Route>
 
         <Route element={<AuthLayout />}>
           <Route path="/auth/sign-up" element={<SignUp />} />
-          {/* <Route path="/auth/sign-in" element={<SignIn />} /> */}
+          <Route path="/auth/sign-in" element={<SignIn />} />
         </Route>
       </Routes>
     </>

@@ -4,9 +4,7 @@ import { motion, type MotionProps } from "motion/react"
 import { type ComponentProps } from "react"
 
 type SectionProps = ComponentProps<"section"> &
-  MotionProps & {
-    withAnimation?: boolean
-  }
+  MotionProps & { withAnimation?: boolean }
 
 const Section = ({
   id,
