@@ -1,7 +1,5 @@
 import { Input } from "@/components/ui/input"
-import { authClient } from "@/lib/auth-client"
 import { Link } from "react-router-dom"
-import { useState } from "react"
 import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field"
 import Button from "@/components/ui/button"
 import Section from "@/components/layout/section"
@@ -9,49 +7,20 @@ import authImage from "@/assets/images/sign-up-image.png"
 import SectionTitle from "@/components/layout/section/section-title"
 import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
 import useRedirect from "@/hooks/use-redirect"
+import useSignIn from "@/pages/sign-in/hooks/use-sign-in"
 
 const SignIn = () => {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
+  const {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    loading,
+    error,
+    handleLogin,
+  } = useSignIn()
 
   useRedirect()
-
-  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-
-    setError(null)
-
-    // validation
-    if (!email || !password) {
-      setError("Semua field wajib diisi")
-      return
-    }
-
-    try {
-      setLoading(true)
-
-      const { error } = await authClient.signIn.email({
-        email,
-        password,
-      })
-
-      // better auth error
-      if (error) {
-        setError(error.message || "Email atau password salah")
-        return
-      }
-    } catch (error) {
-      if (error instanceof Error) {
-        setError(error.message)
-      } else {
-        setError("Terjadi kesalahan server")
-      }
-    } finally {
-      setLoading(false)
-    }
-  }
 
   return (
     <Section className="lg:max-w-6xl">

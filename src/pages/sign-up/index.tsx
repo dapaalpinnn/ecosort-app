@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom"
 import { Input } from "@/components/ui/input"
-import { useState } from "react"
-import { authClient } from "@/lib/auth-client"
 import { Field, FieldSet, FieldGroup, FieldLabel } from "@/components/ui/field"
 import Button from "@/components/ui/button"
 import useRedirect from "@/hooks/use-redirect"
@@ -9,60 +7,24 @@ import Section from "@/components/layout/section"
 import authImage from "@/assets/images/sign-up-image.png"
 import SectionTitle from "@/components/layout/section/section-title"
 import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
+import useSignUp from "@/pages/sign-up/hooks/use-sign-up"
 
 const SignUp = () => {
-  const [name, setName] = useState<string>("")
-  const [email, setEmail] = useState<string>("")
-  const [password, setPassword] = useState<string>("")
-  const [confirmPassword, setConfirmPassword] = useState<string>("")
-  const [loading, setLoading] = useState<boolean>(false)
-  const [error, setError] = useState<string | null>(null)
+  const {
+    name,
+    setName,
+    email,
+    setEmail,
+    password,
+    setPassword,
+    confirmPassword,
+    setConfirmPassword,
+    error,
+    loading,
+    handleRegister,
+  } = useSignUp()
 
   useRedirect()
-
-  const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setError(null)
-
-    if (!name || !email || !password || !confirmPassword) {
-      setError("Semua field wajib diisi")
-      return
-    }
-
-    if (password.length < 8) {
-      setError("Password minimal 8 karakter")
-      return
-    }
-
-    if (password !== confirmPassword) {
-      setError("Konfirmasi password tidak cocok")
-      return
-    }
-
-    try {
-      setLoading(true)
-
-      const { error } = await authClient.signUp.email({
-        name,
-        email,
-        password,
-      })
-
-      // better auth error
-      if (error) {
-        setError(error.statusText)
-        return
-      }
-    } catch (error) {
-      if (error instanceof Error) {
-        setError(error.message)
-      } else {
-        setError("Terjadi kesalahan server")
-      }
-    } finally {
-      setLoading(false)
-    }
-  }
 
   return (
     <Section className="lg:max-w-6xl">
