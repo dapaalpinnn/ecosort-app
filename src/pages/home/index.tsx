@@ -1,7 +1,7 @@
 import { motion } from "motion/react"
 import { useNavigate } from "react-router-dom"
 import Section from "@/components/layout/section"
-import SectionTitle from "@/components/layout/section/section-title"
+import SectionTitle from "@/components/ui/section-title"
 import WasteTypeCard from "@/pages/home/components/waste-type-card"
 import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
 import Button from "@/components/ui/button"

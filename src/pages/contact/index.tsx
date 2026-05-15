@@ -1,5 +1,5 @@
 import Section from "@/components/layout/section"
-import SectionTitle from "@/components/layout/section/section-title"
+import SectionTitle from "@/components/ui/section-title"
 import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
 import ContactCard from "@/pages/contact/components/contact-card"
 import { Mail, MapPin, PhoneCall } from "lucide-react"

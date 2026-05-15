@@ -5,7 +5,6 @@ type FooterLinkGroupProps = {
   links: { label: string; to: string }[]
 }
 
-// Reusable per kolom link
 const FooterLinkGroup = ({ title, links }: FooterLinkGroupProps) => {
   return (
     <div className="flex flex-col gap-3 tracking-tight">
@@ -15,7 +14,7 @@ const FooterLinkGroup = ({ title, links }: FooterLinkGroupProps) => {
           <li key={link.to}>
             <Link
               to={link.to}
-              className="rounded-full px-3 py-1 text-lg text-muted-foreground transition-all duration-200 hover:text-white hover:border hover:border-white/70 hover:bg-primary hover:shadow-sm"
+              className="rounded-full px-3 py-1 text-lg text-muted-foreground transition-all duration-200 hover:border hover:border-white/70 hover:bg-primary hover:text-white hover:shadow-sm"
             >
               {link.label}
             </Link>

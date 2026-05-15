@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils"
 import { TextAlignJustify, X, ArrowUpRight } from "lucide-react"
 import { AnimatePresence, motion } from "motion/react"
 import { useCallback, useEffect, useState } from "react"
-import { navigationData } from "@/components/layout/navbar/utils"
+import { navigationData } from "@/components/layout/navbar/data/navigation-data"
 import { NavLink } from "react-router-dom"
 
 import {

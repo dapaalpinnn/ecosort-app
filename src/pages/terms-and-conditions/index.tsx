@@ -1,7 +1,7 @@
 import Section from "@/components/layout/section"
-import SectionTitle from "@/components/layout/section/section-title"
+import SectionTitle from "@/components/ui/section-title"
 import SecondLifeBetterLife2 from "@/components/ui/second-life-better-life-2"
-import { terms } from "@/pages/terms-and-conditions/terms-content"
+import { terms } from "@/pages/terms-and-conditions/data/terms-content"
 
 const TermsCondition = () => {
   return (

@@ -1,4 +1,4 @@
-import { type PaginationData } from "@/types/pagination.types"
+import { type PaginationData } from "@/types/pagination"
 
 /**
  * article data structure

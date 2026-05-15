@@ -1,5 +1,5 @@
 import { apiRequest } from "@/services"
-import { type ArticleDataResponse } from "@/types/article.types"
+import { type ArticleDataResponse } from "@/types/article"
 
 /**
  * fetch all articles with pagination

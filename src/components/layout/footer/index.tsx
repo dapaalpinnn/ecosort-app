@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom"
 import { cn } from "@/lib/utils"
-import FooterBanner from "@/components/layout/footer/footer-banner"
-import FooterLinkGroup from "@/components/layout/footer/footer-link"
-import { footerLinks } from "@/components/layout/footer/footer-data"
+import FooterBanner from "@/components/ui/footer-banner"
+import FooterLinkGroup from "@/components/ui/footer-link"
+import { footerLinks } from "@/components/layout/footer/data/footer-data"
 // import logoImage from "@/assets/brand/logo.png" // sesuaikan path
 import ecosort from "@/assets/brand/ecosort.png"
 

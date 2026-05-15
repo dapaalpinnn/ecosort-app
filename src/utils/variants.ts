@@ -1,7 +1,7 @@
 import { type Variants } from "motion/react"
 
 /**
- * Used to animate the children of a waste type card
+ * Item variants for animations
  */
 export const itemVariants: Variants = {
   hidden: {
@@ -17,17 +17,5 @@ export const itemVariants: Variants = {
       duration: 0.6,
       ease: "easeOut",
     },
-  },
-}
-
-/**
- * Used to animate the children of a section component
- */
-export const sectionChildVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
   },
 }

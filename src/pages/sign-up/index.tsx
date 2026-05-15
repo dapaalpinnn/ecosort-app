@@ -5,7 +5,7 @@ import Button from "@/components/ui/button"
 import useRedirect from "@/hooks/use-redirect"
 import Section from "@/components/layout/section"
 import authImage from "@/assets/images/sign-up-image.png"
-import SectionTitle from "@/components/layout/section/section-title"
+import SectionTitle from "@/components/ui/section-title"
 import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
 import useSignUp from "@/pages/sign-up/hooks/use-sign-up"
 
@@ -50,7 +50,6 @@ const SignUp = () => {
                 <Field>
                   <FieldLabel htmlFor="email">Email</FieldLabel>
                   <Input
-                    required
                     id="email"
                     type="email"
                     placeholder="Masukkan email Anda"
