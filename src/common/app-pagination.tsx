@@ -20,9 +20,7 @@ const AppPagination = ({
   onPageChange,
 }: AppPaginationProps) => {
   const handleScrollToTop = () => {
-    setTimeout(() => {
-      window.scrollTo({ top: 0, behavior: "instant" })
-    }, 500)
+    window.scrollTo({ top: 0 })
   }
 
   const handlePageChange = (newPage: number) => {

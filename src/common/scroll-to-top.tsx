@@ -9,11 +9,8 @@ const ScrollToTop = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      })
-    }, 300)
+      window.scrollTo({ top: 0 })
+    }, 0)
 
     return () => clearTimeout(timer)
   }, [pathname])

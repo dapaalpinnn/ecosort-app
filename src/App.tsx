@@ -16,8 +16,9 @@ import TermsCondition from "@/pages/terms-and-conditions"
 
 import SignUp from "@/pages/sign-up"
 import SignIn from "@/pages/sign-in"
+import WasteBank from "@/pages/waste-bank"
 
-export function App() {
+export const App = () => {
   return (
     <>
       <ScrollToTop />
@@ -38,6 +39,7 @@ export function App() {
           <Route path="/article" element={<Article />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/waste-bank" element={<WasteBank />} />
           <Route path="/terms-and-conditions" element={<TermsCondition />} />
           <Route
             path="/upload"

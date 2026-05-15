@@ -2,11 +2,15 @@
 
 import { cn } from "@/lib/utils"
 import { TextAlignJustify, X, ArrowUpRight } from "lucide-react"
-import { AnimatePresence, motion } from "motion/react"
 import { useCallback, useEffect, useState } from "react"
 import { navigationData } from "@/components/layout/navbar/data/navigation-data"
 import { NavLink } from "react-router-dom"
-
+import {
+  AnimatePresence,
+  motion,
+  useScroll,
+  useMotionValueEvent,
+} from "motion/react"
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -16,23 +20,31 @@ import {
 import ecosortImage from "@/assets/brand/ecosort.png"
 
 const Navbar = () => {
-  const [sticky, setSticky] = useState(false)
+  const { scrollY } = useScroll()
+  const [hidden, setHidden] = useState<boolean>(false)
   const [isOpen, setIsOpen] = useState(false)
 
-  const handleScroll = useCallback(() => setSticky(window.scrollY >= 50), [])
+  useMotionValueEvent(scrollY, "change", (current) => {
+    const previous = scrollY.getPrevious() ?? 0
+
+    if (current > previous && current > 550) {
+      setHidden(true)
+    } else {
+      setHidden(false)
+    }
+  })
+
   const handleResize = useCallback(() => {
     if (window.innerWidth >= 768) setIsOpen(false)
   }, [])
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll)
     window.addEventListener("resize", handleResize)
 
     return () => {
-      window.removeEventListener("scroll", handleScroll)
       window.removeEventListener("resize", handleResize)
     }
-  }, [handleScroll, handleResize])
+  }, [handleResize])
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : ""
@@ -44,14 +56,20 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50">
+      <motion.header
+        className="sticky top-0 z-50"
+        animate={{
+          y: hidden ? -140 : 0,
+          opacity: hidden ? 0 : 1,
+          transition: {
+            duration: 0.5,
+          },
+        }}
+      >
         <div className="mx-auto w-full max-w-7xl px-4 py-4 sm:px-6">
           <nav
             className={cn(
-              "flex h-fit w-full items-center justify-between gap-3.5 transition-all duration-500 lg:gap-6",
-              sticky
-                ? "rounded-full border border-border/40 bg-background/60 p-2.5 shadow-2xl shadow-primary/5 backdrop-blur-lg"
-                : "border-transparent bg-transparent"
+              "flex h-fit w-full items-center justify-between gap-3.5 rounded-full bg-background p-2.5 shadow-primary/5 transition-all duration-500 lg:gap-6"
             )}
           >
             <NavLink to="/">
@@ -93,7 +111,7 @@ const Navbar = () => {
             </button>
           </nav>
         </div>
-      </header>
+      </motion.header>
 
       <AnimatePresence>
         {isOpen && (

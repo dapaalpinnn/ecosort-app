@@ -17,7 +17,7 @@ export const navigationData: NavigationSection[] = [
     href: "/contact",
   },
   {
-    title: "Fitur",
-    href: "#features",
+    title: "Bank Sampah",
+    href: "/waste-bank",
   },
 ]
