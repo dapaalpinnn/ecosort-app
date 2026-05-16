@@ -9,9 +9,45 @@ const AiIcon = () => {
       width="100"
       height="100"
       viewBox="0,0,255.99599,255.99599"
-      initial={{ opacity: 0, scale: 0.85 }}
-      animate={{ opacity: 1, scale: [1, 1.3, 1], rotate: [0, 2, 0] }}
-      transition={{ opacity: { duration: 0.5, ease: "easeOut" } }}
+      initial={{
+        opacity: 0,
+        scale: 0.85,
+      }}
+      animate={{
+        opacity: 1,
+        scale: [1, 1.3, 1],
+        rotate: [0, 2, 0],
+      }}
+      transition={{
+        opacity: {
+          duration: 0.5,
+          ease: "easeOut",
+        },
+
+        filter: {
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+        },
+
+        y: {
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut",
+        },
+
+        scale: {
+          duration: 3.5,
+          repeat: Infinity,
+          ease: "easeInOut",
+        },
+
+        rotate: {
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+        },
+      }}
       className="drop-shadow-[0_0_18px_rgba(255,255,255,0.25)] will-change-transform"
     >
       <g
