@@ -19,7 +19,7 @@ const WasteBank = () => {
     getUserLocation,
   } = useUserLocation()
 
-  const { banks, totalPages } = useWasteBanks({
+  const { banks, totalPages, nearbyBanks } = useWasteBanks({
     page,
     search,
     latitude: userLocation?.latitude,
@@ -27,19 +27,17 @@ const WasteBank = () => {
   })
 
   return (
-    <Section className="min-h-svh">
-      <div className="mx-auto w-full max-w-5xl">
-        <SecondLifeBetterLife />
-        <div className="mb-6">
-          <SectionTitle as="h1" className="mx-auto mt-4">
-            Bank Sampah
-          </SectionTitle>
-
-          <p className="mt-2 text-muted-foreground">
-            Temukan bank sampah di sekitar Anda
-          </p>
-        </div>
-
+    <Section className="min-h-svh tracking-tight">
+      <SecondLifeBetterLife />
+      <div className="mb-6 w-full">
+        <SectionTitle as="h1" className="mx-auto">
+          Bank Sampah
+        </SectionTitle>
+        <p className="mt-2 text-muted-foreground">
+          Temukan bank sampah di sekitar Anda
+        </p>
+      </div>
+      <div className="mx-auto w-full">
         {locationError && (
           <p className="mb-4 text-sm text-red-500">{locationError}</p>
         )}
@@ -54,7 +52,6 @@ const WasteBank = () => {
             }}
             className="h-12 w-full"
           />
-
           <Button
             onClick={getUserLocation}
             disabled={locationLoading}
@@ -64,9 +61,30 @@ const WasteBank = () => {
           </Button>
         </div>
 
-        <div className="min-h-125 space-y-4">
+        {userLocation && (
+          <div className="my-10">
+            <h2 className="text-xl font-semibold">TPS Terdekat</h2>
+            {nearbyBanks.length > 0 ? (
+              <div className="mt-4 space-y-4">
+                {nearbyBanks.map((bank) => (
+                  <WasteBankCard key={bank.id} bank={bank} />
+                ))}
+              </div>
+            ) : (
+              <p className="mt-2 text-muted-foreground">
+                Tidak ada TPS dalam radius 10 km
+              </p>
+            )}
+          </div>
+        )}
+
+        <div className="mt-4 min-h-125">
           {banks.length > 0 ? (
-            banks.map((bank) => <WasteBankCard key={bank.id} bank={bank} />)
+            <div className="space-y-4">
+              {banks.map((bank) => (
+                <WasteBankCard key={bank.id} bank={bank} />
+              ))}
+            </div>
           ) : (
             <div className="flex h-75 items-center justify-center rounded-xl border">
               <p className="text-muted-foreground">

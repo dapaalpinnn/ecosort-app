@@ -13,11 +13,11 @@ export const navigationData: NavigationSection[] = [
     href: "/article",
   },
   {
-    title: "Kontak",
-    href: "/contact",
-  },
-  {
     title: "Bank Sampah",
     href: "/waste-bank",
+  },
+  {
+    title: "Kontak",
+    href: "/contact",
   },
 ]

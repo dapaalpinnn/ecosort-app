@@ -26,6 +26,7 @@ const useWasteBanks = ({
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
   const [totalPages, setTotalPages] = useState<number>(1)
+  const [nearbyBanks, setNearbyBanks] = useState<WasteBankData[]>([])
 
   useEffect(() => {
     /**
@@ -43,6 +44,7 @@ const useWasteBanks = ({
           longitude,
         })
 
+        setNearbyBanks(response.nearby)
         setBanks(response.data)
         setTotalPages(response.pagination.totalPages)
       } catch (error) {
@@ -60,6 +62,7 @@ const useWasteBanks = ({
   }, [page, search, latitude, longitude])
 
   return {
+    nearbyBanks,
     banks,
     loading,
     error,

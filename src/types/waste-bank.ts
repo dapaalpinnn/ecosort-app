@@ -28,6 +28,7 @@ export interface WasteBankData {
  * waste bank api response structure
  */
 export interface WasteBankDataResponse {
+  nearby: WasteBankData[]
   success: boolean
   data: WasteBankData[]
   pagination: PaginationData

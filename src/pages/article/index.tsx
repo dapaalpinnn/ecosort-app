@@ -6,7 +6,7 @@ import { fetchArticles } from "@/services/article-service"
 import { type ArticleData } from "@/types/article"
 import { AxiosError } from "axios"
 import { formatDate } from "@/utils/formated-date"
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, Loader2 } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { useSearchParams } from "react-router-dom"
 import AppPagination from "@/common/app-pagination"
@@ -38,16 +38,27 @@ const Article = () => {
     getArticles()
   }, [page])
 
-  if (loading)
-    return <p className="mt-6 text-center text-muted-foreground">Loading...</p>
-  if (error)
-    return <p className="mt-6 text-center text-muted-foreground">{error}</p>
+  if (loading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <p className="mt-6 text-center text-muted-foreground">{error}</p>
+      </div>
+    )
+  }
 
   return (
     <Section>
       <SecondLifeBetterLife />
-      <SectionTitle className="font-serif">Artikel</SectionTitle>
-      <p className="font-serif tracking-tight text-muted-foreground">
+      <SectionTitle>Rekomendasi Artikel</SectionTitle>
+      <p className="tracking-tight text-muted-foreground">
         Baca artikel seputar pengelolaan sampah dan lingkungan.
       </p>
       {loading && (
