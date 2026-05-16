@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { motion } from "motion/react"
 
 type FooterLinkGroupProps = {
   title: string
@@ -8,17 +9,37 @@ type FooterLinkGroupProps = {
 const FooterLinkGroup = ({ title, links }: FooterLinkGroupProps) => {
   return (
     <div className="flex flex-col gap-3 tracking-tight">
-      <h4 className="px-3 text-lg font-medium">{title}</h4>
-      <ul className="flex flex-col gap-4">
+      <h4 className="text-lg font-medium">{title}</h4>
+
+      <ul className="flex flex-col gap-2 lg:gap-4">
         {links.map((link) => (
-          <li key={link.to}>
+          <motion.li
+            key={link.to}
+            initial="initial"
+            whileHover="hover"
+            animate="initial"
+            variants={{ initial: { x: 0 }, hover: { x: 10 } }}
+            className="w-fit"
+          >
             <Link
               to={link.to}
-              className="rounded-full px-3 py-1 text-lg text-muted-foreground transition-all duration-200 hover:bg-primary hover:text-white hover:shadow-sm"
+              className="relative text-lg text-muted-foreground transition-colors duration-300 hover:text-foreground"
             >
               {link.label}
+
+              <motion.span
+                className="absolute -bottom-1 left-0 h-0.5 bg-current"
+                variants={{
+                  initial: { width: 0 },
+                  hover: { width: "100%" },
+                }}
+                transition={{
+                  duration: 0.3,
+                  ease: "easeInOut",
+                }}
+              />
             </Link>
-          </li>
+          </motion.li>
         ))}
       </ul>
     </div>
