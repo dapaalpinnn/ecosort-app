@@ -1,20 +1,21 @@
+import { Badge } from "@/components/ui/badge"
 import { motion } from "motion/react"
+import { useAuth } from "@/hooks/use-auth"
+import { authClient } from "@/lib/auth-client"
+import { statistics } from "@/pages/home/data/statistics"
+import { wasteTypes } from "@/pages/home/data/waste-types"
 import { useNavigate } from "react-router-dom"
+import { itemVariants } from "@/types/variants"
+import { ArrowUpRight } from "lucide-react"
+import person from "@/assets/images/person.jpg"
+import Button from "@/components/ui/button"
+import Counter from "./components/counter"
 import Section from "@/components/layout/section"
+import PageLoading from "@/components/ui/page-loading"
 import SectionTitle from "@/components/ui/section-title"
 import WasteTypeCard from "@/pages/home/components/waste-type-card"
 import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
-import Button from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import person from "@/assets/images/person.jpg"
-import { statistics } from "@/pages/home/data/statistics"
-import { wasteTypes } from "@/pages/home/data/waste-types"
-import { itemVariants } from "@/utils/variants"
 import RecycleLogoAnimation from "@/pages/home/components/recycle-animation"
-import Counter from "./components/counter"
-import { ArrowUpRight } from "lucide-react"
-import { useAuth } from "@/hooks/use-auth"
-import { authClient } from "@/lib/auth-client"
 
 const Home = () => {
   const navigate = useNavigate()
@@ -50,7 +51,7 @@ const Home = () => {
           className="mt-4 flex items-center gap-4"
         >
           {isPending ? (
-            <p>Loading...</p>
+            <PageLoading description="Tunggu sebentar" />
           ) : !isAuthenticated ? (
             <Button
               className="cursor-pointer"

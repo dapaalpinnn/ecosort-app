@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom"
 import { Input } from "@/components/ui/input"
+import { LoadingText } from "@/components/ui/loading"
 import { Field, FieldSet, FieldGroup, FieldLabel } from "@/components/ui/field"
 import Button from "@/components/ui/button"
-import useRedirect from "@/hooks/use-redirect"
 import Section from "@/components/layout/section"
-import SectionTitle from "@/components/ui/section-title"
-import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
 import useSignUp from "@/pages/sign-up/hooks/use-sign-up"
 import signUpimage from "@/assets/images/sign-in-image.png"
+import useRedirect from "@/hooks/use-redirect"
+import SectionTitle from "@/components/ui/section-title"
+import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
 
 const SignUp = () => {
   const {
@@ -79,7 +80,7 @@ const SignUp = () => {
                 </Field>
                 {error && <p className="text-sm text-red-500">{error}</p>}
                 <Button type="submit" disabled={loading} className="w-full">
-                  {loading ? "Mendaftarkan..." : "Daftar"}
+                  {loading ? <LoadingText description="Memproses" /> : "Daftar"}
                 </Button>
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   Dengan melanjutkan, Anda menyetujui{" "}

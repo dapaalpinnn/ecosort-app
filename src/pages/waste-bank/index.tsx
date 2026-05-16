@@ -1,12 +1,13 @@
 import { Input } from "@/components/ui/input"
 import { useState } from "react"
+import { LoadingText } from "@/components/ui/loading"
+import Button from "@/components/ui/button"
 import Section from "@/components/layout/section"
 import SectionTitle from "@/components/ui/section-title"
-import Button from "@/components/ui/button"
-import useWasteBanks from "@/hooks/use-waste-banks"
-import useUserLocation from "@/hooks/use-user-location"
-import WasteBankCard from "./components/waste-bank-card"
 import AppPagination from "@/common/app-pagination"
+import useWasteBanks from "@/hooks/use-waste-banks"
+import WasteBankCard from "./components/waste-bank-card"
+import useUserLocation from "@/hooks/use-user-location"
 import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
 
 const WasteBank = () => {
@@ -41,10 +42,9 @@ const WasteBank = () => {
         {locationError && (
           <p className="mb-4 text-sm text-red-500">{locationError}</p>
         )}
-
         <div className="mb-8 flex w-full flex-col gap-3 sm:flex-row">
           <Input
-            placeholder="Cari bank sampah..."
+            placeholder="Cari bank sampah"
             value={search}
             onChange={(e) => {
               setSearch(e.target.value)
@@ -55,9 +55,13 @@ const WasteBank = () => {
           <Button
             onClick={getUserLocation}
             disabled={locationLoading}
-            className="h-12 sm:w-fit"
+            className="h-12 cursor-pointer sm:w-fit"
           >
-            {locationLoading ? "Mengambil lokasi..." : "Gunakan lokasi saya"}
+            {locationLoading ? (
+              <LoadingText description="Mengambil lokasi" />
+            ) : (
+              "Gunakan lokasi saya"
+            )}
           </Button>
         </div>
 
@@ -93,7 +97,6 @@ const WasteBank = () => {
             </div>
           )}
         </div>
-
         <div className="mt-10">
           <AppPagination
             page={page}

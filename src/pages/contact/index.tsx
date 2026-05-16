@@ -1,10 +1,10 @@
+import { motion } from "motion/react"
+import { itemVariants } from "@/types/variants"
+import { Mail, MapPin, PhoneCall } from "lucide-react"
 import Section from "@/components/layout/section"
+import ContactCard from "@/pages/contact/components/contact-card"
 import SectionTitle from "@/components/ui/section-title"
 import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
-import ContactCard from "@/pages/contact/components/contact-card"
-import { Mail, MapPin, PhoneCall } from "lucide-react"
-import { motion } from "motion/react"
-import { itemVariants } from "@/utils/variants"
 
 const Contact = () => {
   return (

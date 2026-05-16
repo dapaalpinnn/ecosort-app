@@ -4,7 +4,7 @@ import { Slot } from "radix-ui"
 import { motion, type MotionProps } from "motion/react"
 import { cn } from "@/lib/utils"
 import { badgeVariants } from "@/components/ui/variants"
-import { itemVariants } from "@/utils/variants"
+import { itemVariants } from "@/types/variants"
 
 type BadgeProps = React.ComponentProps<"span"> &
   MotionProps &

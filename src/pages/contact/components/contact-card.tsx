@@ -1,8 +1,8 @@
 "use client"
 
-import { type LucideIcon } from "lucide-react"
 import { motion } from "motion/react"
-import { itemVariants } from "@/utils/variants"
+import { itemVariants } from "@/types/variants"
+import { type LucideIcon } from "lucide-react"
 
 type ContactCardProps = {
   icon: LucideIcon

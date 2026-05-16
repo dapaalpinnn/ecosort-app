@@ -1,7 +1,7 @@
+import { policies } from "@/pages/privacy-policy/data/policy-content"
 import Section from "@/components/layout/section"
 import SectionTitle from "@/components/ui/section-title"
 import SecondLifeBetterLife2 from "@/components/ui/second-life-better-life-2"
-import { policies } from "@/pages/privacy-policy/data/policy-content"
 
 const PrivacyPolicy = () => {
   return (

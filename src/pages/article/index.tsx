@@ -1,15 +1,16 @@
-import { useEffect, useState } from "react"
-import Section from "@/components/layout/section"
-import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
-import SectionTitle from "@/components/ui/section-title"
-import { fetchArticles } from "@/services/article-service"
-import { type ArticleData } from "@/types/article"
+import { Badge } from "@/components/ui/badge"
 import { AxiosError } from "axios"
 import { formatDate } from "@/utils/formated-date"
-import { ArrowUpRight, Loader2 } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
+import { ArrowUpRight } from "lucide-react"
+import { fetchArticles } from "@/services/article-service"
 import { useSearchParams } from "react-router-dom"
+import { type ArticleData } from "@/types/article"
+import { useEffect, useState } from "react"
+import Section from "@/components/layout/section"
+import PageLoading from "@/components/ui/page-loading"
+import SectionTitle from "@/components/ui/section-title"
 import AppPagination from "@/common/app-pagination"
+import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
 
 const Article = () => {
   const [articles, setArticles] = useState<ArticleData[]>([])
@@ -38,13 +39,7 @@ const Article = () => {
     getArticles()
   }, [page])
 
-  if (loading) {
-    return (
-      <div className="flex min-h-screen items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
-      </div>
-    )
-  }
+  if (loading) return <PageLoading description="Memuat artikel" />
 
   if (error) {
     return (
@@ -61,9 +56,7 @@ const Article = () => {
       <p className="tracking-tight text-muted-foreground">
         Baca artikel seputar pengelolaan sampah dan lingkungan.
       </p>
-      {loading && (
-        <p className="mt-6 text-muted-foreground">Memuat artikel...</p>
-      )}
+      {loading && <PageLoading description="Memuat artikel" />}
       {error && <p className="mt-6 text-sm text-red-500">{error}</p>}
       {!loading && articles.length === 0 && !error && (
         <p className="mt-6 text-muted-foreground">Artikel tidak ditemukan.</p>

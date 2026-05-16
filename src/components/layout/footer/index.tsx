@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom"
 import { cn } from "@/lib/utils"
-import FooterBanner from "@/components/ui/footer-banner"
-import FooterLinkGroup from "@/components/ui/footer-link"
+import { Link } from "react-router-dom"
 import { footerLinks } from "@/components/layout/footer/data/footer-data"
 import ecosort from "@/assets/brand/ecosort.png"
+import FooterBanner from "@/components/ui/footer-banner"
+import FooterLinkGroup from "@/components/ui/footer-link"
 
 const Footer = () => {
   return (

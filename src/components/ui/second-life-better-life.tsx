@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge"
 import { useState, useEffect } from "react"
 import { AnimatePresence } from "motion/react"
 import leavesImage from "@/assets/images/leaves.png"
-import { itemVariants } from "@/utils/variants"
+import { itemVariants } from "@/types/variants"
 import { Link } from "react-router-dom"
 
 const SecondLifeBetterLife = ({

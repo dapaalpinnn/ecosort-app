@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils"
 import { motion, type MotionProps } from "motion/react"
 import type { ComponentProps } from "react"
-import { itemVariants } from "@/utils/variants"
+import { itemVariants } from "@/types/variants"
 
 type SectionTitleProps = ComponentProps<"h2"> &
   MotionProps & {

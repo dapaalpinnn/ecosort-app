@@ -3,11 +3,12 @@ import { Link } from "react-router-dom"
 import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field"
 import Button from "@/components/ui/button"
 import Section from "@/components/layout/section"
+import useSignIn from "@/pages/sign-in/hooks/use-sign-in"
+import useRedirect from "@/hooks/use-redirect"
+import signInImage from "@/assets/images/sign-in-image.png"
 import SectionTitle from "@/components/ui/section-title"
 import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
-import useRedirect from "@/hooks/use-redirect"
-import useSignIn from "@/pages/sign-in/hooks/use-sign-in"
-import signInImage from "@/assets/images/sign-in-image.png"
+import { LoadingText } from "@/components/ui/loading"
 
 const SignIn = () => {
   const {
@@ -59,7 +60,7 @@ const SignIn = () => {
                 {error && <p className="text-sm text-red-500">{error}</p>}
 
                 <Button type="submit" disabled={loading} className="w-full">
-                  {loading ? "Masuk..." : "Masuk"}
+                  {loading ? <LoadingText description="Memproses" /> : "Masuk"}
                 </Button>
                 <p className="text-sm text-muted-foreground">
                   Belum memiliki akun?{" "}
