@@ -1,5 +1,8 @@
 import { authClient } from "@/lib/auth-client"
 
+/**
+ * manage authentication session state
+ */
 export const useAuth = () => {
   const session = authClient.useSession()
 

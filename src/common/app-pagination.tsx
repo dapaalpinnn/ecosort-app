@@ -7,12 +7,7 @@ import {
   PaginationNext,
 } from "@/components/ui/pagination"
 import { generatePagination } from "@/utils/generate-pagination"
-
-interface AppPaginationProps {
-  page: number
-  totalPages: number
-  onPageChange: (page: number) => void
-}
+import { type AppPaginationProps } from "@/types/pagination"
 
 const AppPagination = ({
   page,

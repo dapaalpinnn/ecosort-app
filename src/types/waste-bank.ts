@@ -33,3 +33,15 @@ export interface WasteBankDataResponse {
   data: WasteBankData[]
   pagination: PaginationData
 }
+
+/**
+ * waste bank query parameters
+ */
+export interface FetchWasteBanksProps {
+  page?: number
+  limit?: number
+  search?: string
+  latitude?: number
+  longitude?: number
+  sort?: "nearest" | "farthest"
+}

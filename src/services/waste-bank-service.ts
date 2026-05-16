@@ -1,14 +1,8 @@
 import { apiRequest } from "@/services"
-import { type WasteBankDataResponse } from "@/types/waste-bank"
-
-interface FetchWasteBanksProps {
-  page?: number
-  limit?: number
-  search?: string
-  latitude?: number
-  longitude?: number
-  sort?: "nearest" | "farthest"
-}
+import {
+  type WasteBankDataResponse,
+  type FetchWasteBanksProps,
+} from "@/types/waste-bank"
 
 /**
  * fetch all waste banks with pagination
