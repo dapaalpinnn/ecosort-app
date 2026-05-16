@@ -6,16 +6,17 @@ import { statistics } from "@/pages/home/data/statistics"
 import { wasteTypes } from "@/pages/home/data/waste-types"
 import { useNavigate } from "react-router-dom"
 import { itemVariants } from "@/types/variants"
-import { ArrowUpRight } from "lucide-react"
 import person from "@/assets/images/person.jpg"
 import Button from "@/components/ui/button"
 import Counter from "./components/counter"
 import Section from "@/components/layout/section"
 import PageLoading from "@/components/ui/page-loading"
+import LogoutButton from "@/components/ui/logout-button"
 import SectionTitle from "@/components/ui/section-title"
 import WasteTypeCard from "@/pages/home/components/waste-type-card"
 import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
 import RecycleLogoAnimation from "@/pages/home/components/recycle-animation"
+import AiIcon from "@/assets/svg/ai-icon"
 
 const Home = () => {
   const navigate = useNavigate()
@@ -48,26 +49,34 @@ const Home = () => {
         </motion.p>
         <motion.div
           variants={itemVariants}
-          className="mt-4 flex items-center gap-4"
+          className="mt-4 flex items-center gap-2"
         >
           {isPending ? (
             <PageLoading description="Tunggu sebentar" />
           ) : !isAuthenticated ? (
-            <Button
-              className="cursor-pointer"
-              size="lg"
-              onClick={() => navigate("/auth/sign-in")}
-            >
-              Coba Sekarang <ArrowUpRight size={50} />
-            </Button>
+            <>
+              <Button
+                className="cursor-pointer"
+                size="lg"
+                onClick={() => navigate("/auth/sign-in")}
+              >
+                <AiIcon /> Coba Sekarang
+              </Button>
+              <Button
+                className="cursor-pointer"
+                size="lg"
+                variant={"outline"}
+                onClick={() => navigate("/auth/sign-in")}
+              >
+                Hubungi Asisten
+              </Button>
+            </>
           ) : (
             <>
               <Button size="lg" onClick={() => navigate("/upload")}>
-                Pilih Gambar
+                <AiIcon /> Mulai Identifikasi
               </Button>
-              <Button variant={"destructive"} size="lg" onClick={handleLogout}>
-                Keluar
-              </Button>
+              <LogoutButton onClick={handleLogout} />
             </>
           )}
         </motion.div>
