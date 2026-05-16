@@ -8,11 +8,7 @@ const ScrollToTop = () => {
   const { pathname } = useLocation()
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      window.scrollTo({ top: 0 })
-    }, 0)
-
-    return () => clearTimeout(timer)
+    window.scrollTo({ top: 0 })
   }, [pathname])
 
   return null

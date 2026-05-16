@@ -4,10 +4,10 @@ import { Field, FieldSet, FieldGroup, FieldLabel } from "@/components/ui/field"
 import Button from "@/components/ui/button"
 import useRedirect from "@/hooks/use-redirect"
 import Section from "@/components/layout/section"
-import authImage from "@/assets/images/sign-up-image.png"
 import SectionTitle from "@/components/ui/section-title"
 import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
 import useSignUp from "@/pages/sign-up/hooks/use-sign-up"
+import signUpimage from "@/assets/images/sign-in-image.png"
 
 const SignUp = () => {
   const {
@@ -104,7 +104,7 @@ const SignUp = () => {
         </div>
         <div className="relative hidden overflow-hidden rounded-4xl lg:block">
           <img
-            src={authImage}
+            src={signUpimage}
             alt="EcoSort AI"
             className="h-full w-full object-cover"
           />

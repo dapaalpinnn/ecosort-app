@@ -1,12 +1,11 @@
 export const footerLinks = [
   {
-    title: "EcoSort",
+    title: "Fitur Ecosort",
     links: [
-      { label: "Beranda", to: "/" },
-      { label: "Tentang EcoSort", to: "#about" },
-      { label: "Layanan", to: "#features" },
-      { label: "Artikel", to: "/article" },
-      { label: "Fitur", to: "/features" },
+      { label: "Klasifikasi Sampah", to: "/upload" },
+      { label: "Rekomendasi Artikel", to: "/article" },
+      { label: "Bank Sampah", to: "/waste-bank" },
+      { label: "Riwayat", to: "/waste-bank" },
     ],
   },
   {

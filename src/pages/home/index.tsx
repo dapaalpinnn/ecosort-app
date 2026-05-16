@@ -23,10 +23,11 @@ const Home = () => {
   const handleLogout = async () => {
     try {
       await authClient.signOut()
-
       navigate("/")
-    } catch (error) {
-      console.error(error)
+    } catch (error: unknown) {
+      throw new Error(
+        error instanceof Error ? error.message : "Terjadi kesalahan"
+      )
     }
   }
 

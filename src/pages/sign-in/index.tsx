@@ -3,11 +3,11 @@ import { Link } from "react-router-dom"
 import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field"
 import Button from "@/components/ui/button"
 import Section from "@/components/layout/section"
-import authImage from "@/assets/images/sign-up-image.png"
 import SectionTitle from "@/components/ui/section-title"
 import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
 import useRedirect from "@/hooks/use-redirect"
 import useSignIn from "@/pages/sign-in/hooks/use-sign-in"
+import signInImage from "@/assets/images/sign-in-image.png"
 
 const SignIn = () => {
   const {
@@ -73,7 +73,7 @@ const SignIn = () => {
         </div>
         <div className="relative hidden overflow-hidden rounded-4xl lg:block">
           <img
-            src={authImage}
+            src={signInImage}
             alt="EcoSort AI"
             className="h-full w-full object-cover"
           />

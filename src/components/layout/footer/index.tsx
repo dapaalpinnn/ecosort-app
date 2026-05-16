@@ -7,7 +7,7 @@ import ecosort from "@/assets/brand/ecosort.png"
 
 const Footer = () => {
   return (
-    <footer className={cn("mx-auto flex max-w-7xl flex-col sm:px-10")}>
+    <footer className={cn("mx-auto my-10 flex max-w-7xl flex-col sm:px-10")}>
       <FooterBanner />
       <div className="flex flex-col gap-8 px-6 py-10 md:flex-row md:justify-between">
         <div className="flex max-w-xs flex-col gap-3">
