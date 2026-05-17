@@ -28,7 +28,7 @@ const WasteBank = () => {
   })
 
   return (
-    <Section className="min-h-svh tracking-tight">
+    <Section className="min-h-svh px-4 tracking-tight">
       <SecondLifeBetterLife />
       <div className="mb-6 w-full">
         <SectionTitle as="h1" className="mx-auto">

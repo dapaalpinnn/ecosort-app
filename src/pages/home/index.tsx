@@ -1,7 +1,6 @@
 import { Badge } from "@/components/ui/badge"
 import { motion } from "motion/react"
 import { useAuth } from "@/hooks/use-auth"
-import { authClient } from "@/lib/auth-client"
 import { statistics } from "@/pages/home/data/statistics"
 import { wasteTypes } from "@/pages/home/data/waste-types"
 import { useNavigate } from "react-router-dom"
@@ -11,7 +10,6 @@ import Button from "@/components/ui/button"
 import Counter from "./components/counter"
 import Section from "@/components/layout/section"
 import PageLoading from "@/components/ui/page-loading"
-import LogoutButton from "@/components/ui/logout-button"
 import SectionTitle from "@/components/ui/section-title"
 import WasteTypeCard from "@/pages/home/components/waste-type-card"
 import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
@@ -21,17 +19,6 @@ import AiIcon from "@/assets/svg/ai-icon"
 const Home = () => {
   const navigate = useNavigate()
   const { isAuthenticated, isPending } = useAuth()
-
-  const handleLogout = async () => {
-    try {
-      await authClient.signOut()
-      navigate("/")
-    } catch (error: unknown) {
-      throw new Error(
-        error instanceof Error ? error.message : "Terjadi kesalahan"
-      )
-    }
-  }
 
   return (
     <>
@@ -72,19 +59,16 @@ const Home = () => {
               </Button>
             </>
           ) : (
-            <>
-              <Button size="lg" onClick={() => navigate("/upload")}>
-                <AiIcon /> Mulai Identifikasi
-              </Button>
-              <LogoutButton onClick={handleLogout} />
-            </>
+            <Button size="lg" onClick={() => navigate("/upload")}>
+              <AiIcon /> Mulai Identifikasi
+            </Button>
           )}
         </motion.div>
       </Section>
 
       <Section
         id="about"
-        className="min-h-[50svh] rounded-4xl border-4 border-dashed lg:max-w-4xl xl:max-w-5xl"
+        className="min-h-[50svh] border-y-4 border-dashed sm:rounded-4xl sm:border-4 lg:max-w-4xl xl:max-w-5xl"
       >
         <div className="rounded-2xl sm:rounded-4xl md:grid md:grid-cols-2">
           <div className="flex flex-col gap-4 px-8 py-12 sm:p-10">

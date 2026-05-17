@@ -1,10 +1,13 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import { TextAlignJustify, X, ArrowUpRight } from "lucide-react"
-import { useCallback, useEffect, useState } from "react"
-import { navigationData } from "@/components/layout/navbar/data/navigation-data"
+import { useAuth } from "@/hooks/use-auth"
 import { NavLink } from "react-router-dom"
+import { navigationData } from "@/components/layout/navbar/data/navigation-data"
+import { useCallback, useEffect, useState } from "react"
+import { TextAlignJustify, X, ArrowUpRight } from "lucide-react"
+import ecosortImage from "@/assets/brand/ecosort.png"
+import DropdownMenuAvatar from "@/components/ui/dropdown-menu-avatar"
 import {
   AnimatePresence,
   motion,
@@ -17,12 +20,11 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu"
 
-import ecosortImage from "@/assets/brand/ecosort.png"
-
 const Navbar = () => {
   const { scrollY } = useScroll()
   const [hidden, setHidden] = useState<boolean>(false)
   const [isOpen, setIsOpen] = useState(false)
+  const { isAuthenticated } = useAuth()
 
   useMotionValueEvent(scrollY, "change", (current) => {
     const previous = scrollY.getPrevious() ?? 0
@@ -75,7 +77,6 @@ const Navbar = () => {
             <NavLink to="/">
               <img src={ecosortImage} alt="EcoSort" className="w-32 lg:w-40" />
             </NavLink>
-
             <NavigationMenu className="rounded-full p-0.5 max-lg:hidden">
               <NavigationMenuList className="flex gap-0">
                 {navigationData.map((navItem) => (
@@ -88,31 +89,47 @@ const Navbar = () => {
                     </NavLink>
                   </NavigationMenuItem>
                 ))}
+                {isAuthenticated && (
+                  <NavigationMenuItem className="flex items-center lg:ml-4">
+                    <DropdownMenuAvatar />
+                  </NavigationMenuItem>
+                )}
               </NavigationMenuList>
             </NavigationMenu>
 
-            <button
-              onClick={() => setIsOpen((prev) => !prev)}
-              className="flex cursor-pointer items-center justify-center rounded-full border border-border p-2 lg:hidden"
-              aria-label={isOpen ? "Close menu" : "Open menu"}
-            >
-              <AnimatePresence mode="wait" initial={false}>
-                <motion.span
-                  key={isOpen ? "close" : "open"}
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="flex"
-                >
-                  {isOpen ? <X size={20} /> : <TextAlignJustify size={20} />}
-                </motion.span>
-              </AnimatePresence>
-            </button>
+            {/* MOBILE MENU */}
+            <div className="flex gap-4 lg:hidden">
+              {isAuthenticated && (
+                <NavigationMenu className="rounded-full p-0.5">
+                  <NavigationMenuList className="flex gap-0">
+                    <NavigationMenuItem className="flex items-center">
+                      <DropdownMenuAvatar />
+                    </NavigationMenuItem>
+                  </NavigationMenuList>
+                </NavigationMenu>
+              )}
+              <button
+                onClick={() => setIsOpen((prev) => !prev)}
+                className="flex cursor-pointer items-center justify-center rounded-full border border-border p-2 lg:hidden"
+                aria-label={isOpen ? "Close menu" : "Open menu"}
+              >
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.span
+                    key={isOpen ? "close" : "open"}
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="flex"
+                  >
+                    {isOpen ? <X size={20} /> : <TextAlignJustify size={20} />}
+                  </motion.span>
+                </AnimatePresence>
+              </button>
+            </div>
           </nav>
         </div>
       </motion.header>
-
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -121,7 +138,7 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="fixed inset-0 z-30 bg-background/70 backdrop-blur-md lg:hidden"
+            className="fixed inset-0 z-30 bg-primary lg:hidden"
           >
             <nav className="flex h-full flex-col justify-center gap-2 px-8">
               {navigationData.map((item, index) => (
@@ -138,7 +155,7 @@ const Navbar = () => {
                     ease: "easeOut",
                   }}
                   whileHover={{ x: 10 }}
-                  className="group flex items-center gap-4 py-3 text-3xl font-medium tracking-tight text-primary transition-colors hover:text-primary"
+                  className="group flex items-center gap-4 py-3 text-3xl font-medium tracking-tight text-background transition-colors"
                 >
                   {item.title}
                   <motion.div

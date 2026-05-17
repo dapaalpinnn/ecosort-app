@@ -53,7 +53,7 @@ const Article = () => {
     <Section>
       <SecondLifeBetterLife />
       <SectionTitle>Rekomendasi Artikel</SectionTitle>
-      <p className="tracking-tight text-muted-foreground">
+      <p className="mx-4 tracking-tight text-muted-foreground sm:mx-0">
         Baca artikel seputar pengelolaan sampah dan lingkungan.
       </p>
       {loading && <PageLoading description="Memuat artikel" />}
@@ -65,7 +65,7 @@ const Article = () => {
         {articles.map((article) => (
           <div
             key={article.url}
-            className="max-w-sm overflow-hidden rounded-xl border bg-background text-left md:flex md:max-w-xl md:items-center md:justify-start lg:max-w-4xl"
+            className="mx-4 max-w-sm overflow-hidden rounded-xl border bg-background text-left sm:mx-0 md:flex md:max-w-xl md:items-center md:justify-start lg:max-w-4xl"
           >
             <img
               src={article.image || "https://picsum.photos/300/200?random=1"}

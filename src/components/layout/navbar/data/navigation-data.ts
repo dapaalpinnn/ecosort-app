@@ -1,9 +1,25 @@
-export type NavigationSection = {
+import { HistoryIcon, LogOutIcon, type LucideIcon } from "lucide-react"
+
+export type NavigationItem = {
   title: string
   href: string
 }
 
-export const navigationData: NavigationSection[] = [
+export type ProfileMenuItem =
+  | {
+      type: "link"
+      title: string
+      href: string
+      icon: LucideIcon
+    }
+  | {
+      type: "action"
+      title: string
+      action: "logout"
+      icon: LucideIcon
+    }
+
+export const navigationData: NavigationItem[] = [
   {
     title: "Beranda",
     href: "/",
@@ -19,5 +35,20 @@ export const navigationData: NavigationSection[] = [
   {
     title: "Kontak",
     href: "/contact",
+  },
+]
+
+export const profileMenuItems: ProfileMenuItem[] = [
+  {
+    type: "link",
+    title: "Riwayat",
+    href: "/history",
+    icon: HistoryIcon,
+  },
+  {
+    type: "action",
+    title: "Keluar",
+    action: "logout",
+    icon: LogOutIcon,
   },
 ]

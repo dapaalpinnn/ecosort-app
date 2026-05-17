@@ -17,6 +17,7 @@ import TermsCondition from "@/pages/terms-and-conditions"
 import SignUp from "@/pages/sign-up"
 import SignIn from "@/pages/sign-in"
 import WasteBank from "@/pages/waste-bank"
+import History from "@/pages/history"
 
 export const App = () => {
   return (
@@ -46,6 +47,14 @@ export const App = () => {
             element={
               <ProtectedRoute>
                 <Upload />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/history"
+            element={
+              <ProtectedRoute>
+                <History />
               </ProtectedRoute>
             }
           />
