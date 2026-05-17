@@ -6,10 +6,11 @@ import { type ArticleDataResponse } from "@/types/article"
  */
 export const fetchArticles = async (
   page: number = 1,
-  limit: number = 10
+  limit: number = 10,
+  search: string = ""
 ): Promise<ArticleDataResponse> => {
   return await apiRequest<ArticleDataResponse>(
-    `/artikel?page=${page}&limit=${limit}`,
+    `/artikel?page=${page}&limit=${limit}&search=${search}`,
     "GET"
   )
 }
