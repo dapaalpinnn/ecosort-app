@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { Input } from "@/components/ui/input"
 import { LoadingText } from "@/components/ui/loading"
+import { useRedirect } from "@/hooks/use-redirect"
 import { Field, FieldSet, FieldGroup, FieldLabel } from "@/components/ui/field"
 import Button from "@/components/ui/button"
 import Section from "@/components/layout/section"
@@ -10,6 +11,8 @@ import SectionTitle from "@/components/ui/section-title"
 import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
 
 const SignUp = () => {
+  useRedirect()
+
   const {
     name,
     setName,

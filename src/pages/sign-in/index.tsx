@@ -8,8 +8,11 @@ import signInImage from "@/assets/images/sign-in-image.png"
 import SectionTitle from "@/components/ui/section-title"
 import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
 import { LoadingText } from "@/components/ui/loading"
+import { useRedirect } from "@/hooks/use-redirect"
 
 const SignIn = () => {
+  useRedirect()
+
   const {
     email,
     setEmail,
