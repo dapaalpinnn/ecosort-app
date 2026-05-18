@@ -1,10 +1,11 @@
 import axios, { type AxiosResponse } from "axios"
+import { isProductionEnvironment, developmentApiBaseUrl } from "@/config/env"
 
 /**
  * axios client instance
  */
 export const apiClient = axios.create({
-  baseURL: "/api",
+  baseURL: isProductionEnvironment ? "/api" : developmentApiBaseUrl,
   withCredentials: true,
   headers: { "Content-Type": "application/json" },
 })

@@ -5,7 +5,7 @@ export const footerLinks = [
       { label: "Klasifikasi Sampah", to: "/upload" },
       { label: "Rekomendasi Artikel", to: "/article" },
       { label: "Bank Sampah", to: "/waste-bank" },
-      { label: "Riwayat", to: "#" },
+      { label: "Riwayat", to: "/history" },
     ],
   },
   {

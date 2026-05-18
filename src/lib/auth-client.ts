@@ -1,9 +1,16 @@
 import { createAuthClient } from "better-auth/react"
+import {
+  isProductionEnvironment,
+  productionAuthApiUrl,
+  developmentAuthApiUrl,
+} from "@/config/env"
 
 /**
  * better auth client configuration
  */
 export const authClient = createAuthClient({
-  baseURL: `${window.location.origin}/api/auth`,
+  baseURL: isProductionEnvironment
+    ? productionAuthApiUrl
+    : developmentAuthApiUrl,
   fetchOptions: { credentials: "include" },
 })

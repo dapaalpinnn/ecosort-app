@@ -1,20 +1,22 @@
 import { Badge } from "@/components/ui/badge"
 import { motion } from "motion/react"
 import { useAuth } from "@/hooks/use-auth"
+import { features } from "@/pages/home/data/features"
 import { statistics } from "@/pages/home/data/statistics"
 import { wasteTypes } from "@/pages/home/data/waste-types"
 import { useNavigate } from "react-router-dom"
 import { itemVariants } from "@/types/variants"
 import person from "@/assets/images/person.jpg"
 import Button from "@/components/ui/button"
+import AiIcon from "@/assets/svg/ai-icon"
 import Counter from "./components/counter"
 import Section from "@/components/layout/section"
 import PageLoading from "@/components/ui/page-loading"
+import FeatureCard from "@/pages/home/components/feature-card"
 import SectionTitle from "@/components/ui/section-title"
 import WasteTypeCard from "@/pages/home/components/waste-type-card"
 import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
 import RecycleLogoAnimation from "@/pages/home/components/recycle-animation"
-import AiIcon from "@/assets/svg/ai-icon"
 
 const Home = () => {
   const navigate = useNavigate()
@@ -65,10 +67,9 @@ const Home = () => {
           )}
         </motion.div>
       </Section>
-
       <Section
         id="about"
-        className="min-h-[50svh] border-y-4 border-dashed sm:rounded-4xl sm:border-4 lg:max-w-4xl xl:max-w-5xl"
+        className="min-h-[50svh] border-y-4 border-dashed sm:rounded-4xl sm:border-2 md:border-4 lg:max-w-4xl xl:max-w-5xl"
       >
         <div className="rounded-2xl sm:rounded-4xl md:grid md:grid-cols-2">
           <div className="flex flex-col gap-4 px-8 py-12 sm:p-10">
@@ -100,7 +101,6 @@ const Home = () => {
           </div>
         </div>
       </Section>
-
       <Section id="statistic" className="min-h-svh py-18 lg:py-28">
         <Badge variant={"destructive"} className="tracking-tight">
           Skala permasalahan sampah di Indonesia
@@ -125,28 +125,66 @@ const Home = () => {
           ))}
         </div>
       </Section>
-
       <Section id="waste-type" className="min-h-svh">
         <Badge>Jenis Sampah yang Diidentifikasi</Badge>
         <SectionTitle as="h2">
           Kenali lebih dalam jenis-jenis sampah untuk proses pemilahan dan daur
           ulang yang lebih tepat.
         </SectionTitle>
-        <div className="grid grid-cols-1 gap-4 py-8 sm:grid-cols-2 lg:grid-cols-3">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.3,
+                delayChildren: 0.3,
+              },
+            },
+          }}
+          className="grid grid-cols-1 gap-4 py-8 sm:grid-cols-2 lg:grid-cols-3"
+        >
           {wasteTypes.map((wasteType) => (
-            <motion.div key={wasteType.id} variants={itemVariants}>
-              <WasteTypeCard title={wasteType.label} image={wasteType.image} />
-            </motion.div>
+            <WasteTypeCard
+              key={wasteType.id}
+              title={wasteType.label}
+              image={wasteType.image}
+            />
           ))}
-        </div>
+        </motion.div>
       </Section>
-
-      <Section id="features" className="min-h-svh py-18 lg:py-28">
+      <Section id="features" className="min-h-svh py-18">
         <Badge>Bagaimana kami membantu?</Badge>
         <SectionTitle as="h2">
           Solusi digital untuk mempermudah Anda memilah dan mendaur ulang sampah
           secara efisien.
         </SectionTitle>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.3,
+                delayChildren: 0.3,
+              },
+            },
+          }}
+          className="grid w-full grid-cols-1 gap-4 px-4 py-8 md:grid-cols-2"
+        >
+          {features.map((feature) => (
+            <FeatureCard
+              key={feature.id}
+              title={feature.label}
+              description={feature.description}
+              image={feature.image}
+            />
+          ))}
+        </motion.div>
       </Section>
     </>
   )
