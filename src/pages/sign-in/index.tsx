@@ -4,7 +4,6 @@ import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field"
 import Button from "@/components/ui/button"
 import Section from "@/components/layout/section"
 import useSignIn from "@/pages/sign-in/hooks/use-sign-in"
-import useRedirect from "@/hooks/use-redirect"
 import signInImage from "@/assets/images/sign-in-image.png"
 import SectionTitle from "@/components/ui/section-title"
 import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
@@ -20,8 +19,6 @@ const SignIn = () => {
     error,
     handleLogin,
   } = useSignIn()
-
-  useRedirect()
 
   return (
     <Section className="lg:max-w-6xl">

@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { authClient } from "@/lib/auth-client"
+import { useNavigate } from "react-router-dom"
 import { signInSchema } from "@/pages/sign-in/schemas/sign-in-schema"
 
 /**
@@ -10,6 +11,7 @@ const useSignIn = () => {
   const [password, setPassword] = useState("")
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const navigate = useNavigate()
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -49,6 +51,8 @@ const useSignIn = () => {
         setError(error.message || "Email atau password salah")
         return
       }
+
+      navigate("/upload", { replace: true })
     } catch (error) {
       if (error instanceof Error) {
         setError(error.message)

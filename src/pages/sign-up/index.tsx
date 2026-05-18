@@ -6,7 +6,6 @@ import Button from "@/components/ui/button"
 import Section from "@/components/layout/section"
 import useSignUp from "@/pages/sign-up/hooks/use-sign-up"
 import signUpimage from "@/assets/images/sign-in-image.png"
-import useRedirect from "@/hooks/use-redirect"
 import SectionTitle from "@/components/ui/section-title"
 import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
 
@@ -24,8 +23,6 @@ const SignUp = () => {
     loading,
     handleRegister,
   } = useSignUp()
-
-  useRedirect()
 
   return (
     <Section className="lg:max-w-6xl">

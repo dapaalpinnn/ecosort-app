@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { authClient } from "@/lib/auth-client"
+import { useNavigate } from "react-router-dom"
 import { signUpSchema } from "@/pages/sign-up/schemas/sign-up-schema"
 
 const useSignUp = () => {
@@ -9,6 +10,7 @@ const useSignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState<string>("")
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
+  const navigate = useNavigate()
 
   const handleRegister = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -48,6 +50,8 @@ const useSignUp = () => {
         setError(error.message || "Gagal membuat akun")
         return
       }
+
+      navigate("/upload", { replace: true })
     } catch (error) {
       if (error instanceof Error) {
         setError(error.message)
