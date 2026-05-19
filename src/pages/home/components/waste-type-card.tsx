@@ -27,7 +27,7 @@ const WasteTypeCard = ({ title, image }: WasteTypeCardProps) => {
         className="relative z-10 aspect-video w-full object-cover brightness-75"
       />
       <div className="absolute inset-0 z-20 bg-linear-to-b from-transparent via-black/40 to-black/70" />
-      <CardHeader className="absolute bottom-4 left-4 z-30 text-left">
+      <CardHeader className="absolute bottom-4 left-4 z-10 text-left">
         <CardTitle className="text-2xl font-semibold tracking-tighter text-white sm:text-3xl md:text-3xl">
           {title}
         </CardTitle>
