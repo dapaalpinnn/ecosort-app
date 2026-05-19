@@ -34,7 +34,7 @@ const FooterLinkGroup = ({ title, links }: FooterLinkGroupProps) => {
                   hover: { width: "100%" },
                 }}
                 transition={{
-                  duration: 0.3,
+                  duration: 0.5,
                   ease: "easeInOut",
                 }}
               />

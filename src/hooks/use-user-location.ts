@@ -1,29 +1,36 @@
-import { useState } from "react"
+import { useCallback, useState } from "react"
 
-/**
- * user geographic coordinates
- */
 interface UserLocation {
   latitude: number
   longitude: number
+  savedAt?: number
 }
 
 /**
- * manage user geolocation state and retrieval
+ * user location storage key
  */
+const STORAGE_KEY = "user-location"
+
 const useUserLocation = () => {
-  const [userLocation, setUserLocation] = useState<UserLocation | null>(null)
-  const [loading, setLoading] = useState<boolean>(false)
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [userLocation, setUserLocation] = useState<UserLocation | null>(() => {
+    try {
+      const savedLocation = localStorage.getItem(STORAGE_KEY)
+
+      return savedLocation ? JSON.parse(savedLocation) : null
+    } catch {
+      return null
+    }
+  })
 
   /**
    * get current user location from browser geolocation api
    */
-  const getUserLocation = () => {
+  const getUserLocation = useCallback(() => {
     setLoading(true)
     setError(null)
 
-    // check browser geolocation support
     if (!navigator.geolocation) {
       setError("Browser tidak mendukung geolocation")
       setLoading(false)
@@ -33,19 +40,38 @@ const useUserLocation = () => {
 
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        setUserLocation({
+        const newLocation = {
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
-        })
+          savedAt: Date.now(),
+        }
+
+        setUserLocation(newLocation)
+
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(newLocation))
 
         setLoading(false)
       },
+
       (error) => {
         setError(error.message)
         setLoading(false)
       },
-      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+
+      {
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 0,
+      }
     )
+  }, [])
+
+  /**
+   * clear user location from local storage
+   */
+  const clearUserLocation = () => {
+    localStorage.removeItem(STORAGE_KEY)
+    setUserLocation(null)
   }
 
   return {
@@ -53,6 +79,7 @@ const useUserLocation = () => {
     loading,
     error,
     getUserLocation,
+    clearUserLocation,
   }
 }
 

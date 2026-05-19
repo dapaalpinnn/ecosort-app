@@ -9,9 +9,10 @@ import { useEffect, useRef } from "react"
 
 type CounterProps = {
   value: number
+  duration?: number
 }
 
-export default function Counter({ value }: CounterProps) {
+export default function Counter({ value, duration = 1 }: CounterProps) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
   const count = useMotionValue(0)
@@ -28,11 +29,11 @@ export default function Counter({ value }: CounterProps) {
     if (!isInView) return
 
     const controls = animate(count, value, {
-      duration: 1,
+      duration: duration,
     })
 
     return () => controls.stop()
-  }, [isInView, value, count])
+  }, [isInView, value, count, duration])
 
   return <motion.span ref={ref}>{rounded}</motion.span>
 }
