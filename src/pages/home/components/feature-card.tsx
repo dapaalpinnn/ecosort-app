@@ -44,7 +44,7 @@ const FeatureCard = ({ title, description, image }: FeatureCardProps) => {
           <CardTitle className="z-20 bg-linear-to-b from-white via-zinc-600 to-black bg-clip-text text-3xl leading-tight font-medium tracking-tight text-white/60">
             {title}
           </CardTitle>
-          <CardDescription className="z-20 line-clamp-3 text-base leading-tight text-white/55">
+          <CardDescription className="z-20 line-clamp-3 text-base leading-tight font-medium tracking-tight text-white/55">
             {description}
           </CardDescription>
         </CardHeader>
