@@ -14,8 +14,8 @@ export const MainLayout = () => {
       <Navbar />
       <main className="flex-1">
         <Outlet />
+        <FloatingChatbot />
       </main>
-      <FloatingChatbot />
       <Footer />
     </>
   )

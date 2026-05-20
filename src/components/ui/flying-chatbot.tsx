@@ -1,37 +1,35 @@
-import { useState } from "react";
-import ChatbotIcon from "@/assets/images/chatbot-icon.png";
-import ChatWidget from "@/pages/chatbot/index";
+import { motion } from "motion/react"
+import { useState } from "react"
 
-export default function FloatingChatbot() {
-  const [open, setOpen] = useState(false);
+import ChatWidget from "@/pages/chatbot/index"
+import ChatbotIcon from "@/assets/images/chatbot-icon.png"
+
+const FloatingChatbot = () => {
+  const [open, setOpen] = useState(false)
 
   return (
     <>
       {open && <ChatWidget onClose={() => setOpen(false)} />}
 
-      <button
+      <motion.button
         onClick={() => setOpen(!open)}
-        className="
-          fixed
-          bottom-5
-          right-5
-          z-50
-          flex
-          h-20
-          w-20
-          bg-transparent
-          items-center
-          justify-center
-          transition
-          hover:scale-110
-        "
+        initial={{ y: 0 }}
+        animate={{ y: [0, -8, 0] }}
+        transition={{
+          duration: 2.5,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="fixed right-5 bottom-5 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-lg ring-1 ring-black/5 transition-all md:h-18 md:w-18"
       >
         <img
           src={ChatbotIcon}
           alt="Chatbot"
-          className="h-full w-full object-contain"
+          className="h-8 w-8 object-contain md:h-10 md:w-10"
         />
-      </button>
+      </motion.button>
     </>
-  );
+  )
 }
+
+export default FloatingChatbot
