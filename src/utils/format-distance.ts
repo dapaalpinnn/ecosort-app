@@ -1,7 +1,7 @@
 /**
  * format distance value into meters or kilometers
  *
- * example:
+ * @example
  * 1500 -> 1.5km
  * 500 -> 500m
  */

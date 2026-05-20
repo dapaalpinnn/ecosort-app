@@ -80,14 +80,6 @@ const Article = () => {
     getArticles()
   }, [page, searchQuery])
 
-  if (error) {
-    return (
-      <div className="flex min-h-screen items-center justify-center">
-        <p className="text-muted-foreground">{error}</p>
-      </div>
-    )
-  }
-
   return (
     <Section className="px-4 sm:px-0">
       <SecondLifeBetterLife />
@@ -104,33 +96,43 @@ const Article = () => {
         />
       </div>
       {loading && (
-        <div className="mt-6 flex items-center gap-2 text-sm text-muted-foreground">
+        <div className="mt-6 flex min-h-[30svh] items-center gap-2 text-sm text-muted-foreground">
           <LoadingText description="Memuat artikel" />
         </div>
       )}
-      {!loading && articles.length === 0 && (
+      {!loading && error && (
+        <div className="flex min-h-[30svh] w-full flex-col items-center justify-center">
+          <RecycleLogoAnimation />
+          <p className="mt-2 text-muted-foreground">{error}</p>
+        </div>
+      )}
+      {!loading && !error && articles.length === 0 && (
         <div className="flex min-h-[30svh] w-full flex-col items-center justify-center">
           <RecycleLogoAnimation />
           <p className="mt-2 text-muted-foreground">Artikel tidak ditemukan.</p>
         </div>
       )}
-      <div className="mt-8 grid grid-cols-1 gap-6">
-        {articles.map((article, index) => (
-          <ArticleCard key={index} article={article} />
-        ))}
-      </div>
-      <AppPagination
-        page={page}
-        totalPages={totalPages}
-        onPageChange={(newPage) => {
-          setSearchParams({
-            page: String(newPage),
-            ...(searchQuery && {
-              search: searchQuery,
-            }),
-          })
-        }}
-      />
+      {!loading && !error && articles.length > 0 && (
+        <>
+          <div className="mt-8 grid grid-cols-1 gap-6">
+            {articles.map((article, index) => (
+              <ArticleCard key={index} article={article} />
+            ))}
+          </div>
+          <AppPagination
+            page={page}
+            totalPages={totalPages}
+            onPageChange={(newPage) => {
+              setSearchParams({
+                page: String(newPage),
+                ...(searchQuery && {
+                  search: searchQuery,
+                }),
+              })
+            }}
+          />
+        </>
+      )}
     </Section>
   )
 }
