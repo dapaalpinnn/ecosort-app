@@ -3,6 +3,7 @@ import { Navigate, Outlet } from "react-router-dom"
 import Navbar from "@/components/layout/navbar"
 import Footer from "@/components/layout/footer"
 import PageLoading from "@/components/ui/page-loading"
+import FloatingChatbot from "@/components/ui/flying-chatbot"
 
 /**
  * main website layout
@@ -14,6 +15,7 @@ export const MainLayout = () => {
       <main className="flex-1">
         <Outlet />
       </main>
+      <FloatingChatbot />
       <Footer />
     </>
   )
