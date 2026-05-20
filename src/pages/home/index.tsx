@@ -51,14 +51,6 @@ const Home = () => {
               >
                 <AiIcon /> Coba Sekarang
               </Button>
-              <Button
-                className="cursor-pointer"
-                size="lg"
-                variant={"outline"}
-                onClick={() => navigate("/auth/sign-in")}
-              >
-                Hubungi Asisten
-              </Button>
             </>
           ) : (
             <Button size="lg" onClick={() => navigate("/upload")}>
