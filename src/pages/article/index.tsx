@@ -96,18 +96,18 @@ const Article = () => {
         />
       </div>
       {loading && (
-        <div className="mt-6 flex min-h-[30svh] items-center gap-2 text-sm text-muted-foreground">
+        <div className="mt-6 flex min-h-[50svh] items-center gap-2 text-sm text-muted-foreground">
           <LoadingText description="Memuat artikel" />
         </div>
       )}
       {!loading && error && (
-        <div className="flex min-h-[30svh] w-full flex-col items-center justify-center">
+        <div className="flex min-h-[50svh] w-full flex-col items-center justify-center">
           <RecycleLogoAnimation />
           <p className="mt-2 text-muted-foreground">{error}</p>
         </div>
       )}
       {!loading && !error && articles.length === 0 && (
-        <div className="flex min-h-[30svh] w-full flex-col items-center justify-center">
+        <div className="flex min-h-[50svh] w-full flex-col items-center justify-center">
           <RecycleLogoAnimation />
           <p className="mt-2 text-muted-foreground">Artikel tidak ditemukan.</p>
         </div>
