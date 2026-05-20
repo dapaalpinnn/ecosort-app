@@ -1,20 +1,19 @@
 import { terms } from "@/pages/terms-and-conditions/data/terms-content"
 import Section from "@/components/layout/section"
 import SectionTitle from "@/components/ui/section-title"
-import SecondLifeBetterLife2 from "@/components/ui/second-life-better-life-2"
+import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
 
 const TermsCondition = () => {
   return (
     <Section className="py-20 pt-16">
-      <SecondLifeBetterLife2 />
+      <SecondLifeBetterLife />
       <SectionTitle
         as="h2"
         className="mx-auto my-10 text-center text-4xl leading-tight"
       >
         Syarat dan Ketentuan
       </SectionTitle>
-
-      <div className="min-h-screen px-6">
+      <div className="mmin-h-screen px-6 py-10">
         <ol className="list-decimal space-y-6 font-semibold">
           {terms.map((term) => (
             <li

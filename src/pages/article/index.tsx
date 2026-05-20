@@ -1,7 +1,7 @@
 import { Input } from "@/components/ui/input"
+import { Loading } from "@/components/ui/loading"
 import { AxiosError } from "axios"
 import { useDebounce } from "use-debounce"
-import { LoadingText } from "@/components/ui/loading"
 import { fetchArticles } from "@/services/article-service"
 import { useSearchParams } from "react-router-dom"
 import { type ArticleData } from "@/types/article"
@@ -97,7 +97,7 @@ const Article = () => {
       </div>
       {loading && (
         <div className="mt-6 flex min-h-[50svh] items-center gap-2 text-sm text-muted-foreground">
-          <LoadingText description="Memuat artikel" />
+          <Loading description="Memuat artikel" />
         </div>
       )}
       {!loading && error && (

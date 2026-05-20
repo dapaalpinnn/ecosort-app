@@ -10,7 +10,6 @@ const FooterLinkGroup = ({ title, links }: FooterLinkGroupProps) => {
   return (
     <div className="flex flex-col gap-3 tracking-tight">
       <h4 className="text-lg font-medium">{title}</h4>
-
       <ul className="flex flex-col gap-2 lg:gap-4">
         {links.map((link) => (
           <motion.li

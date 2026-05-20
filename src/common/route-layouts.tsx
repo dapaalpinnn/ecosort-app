@@ -1,8 +1,8 @@
 import { useAuth } from "@/hooks/use-auth"
+import { PageLoading } from "@/components/ui/loading"
 import { Navigate, Outlet } from "react-router-dom"
 import Navbar from "@/components/layout/navbar"
 import Footer from "@/components/layout/footer"
-import PageLoading from "@/components/ui/page-loading"
 
 /**
  * main website layout

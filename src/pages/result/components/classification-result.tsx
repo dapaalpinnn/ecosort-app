@@ -10,10 +10,10 @@ const ClassificationResult = () => {
           className="h-full w-full object-cover"
         />
       </figure>
-      <article className="flex h-full flex-col justify-evenly rounded-3xl border bg-background p-6">
+      <article className="flex h-full flex-col justify-evenly gap-4 rounded-3xl border bg-background p-6">
         <div className="mx-auto">
           <p className="text-sm tracking-tight text-muted-foreground">
-            Tingkat Keyakinan
+            Hasil Klasifikasi
           </p>
           <div className="mt-3 flex items-end gap-2">
             <p className="text-6xl font-semibold tracking-tighter">

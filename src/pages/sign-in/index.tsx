@@ -1,14 +1,20 @@
-import { Input } from "@/components/ui/input"
 import { Link } from "react-router-dom"
-import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field"
+import { Input } from "@/components/ui/input"
+import { Loading } from "@/components/ui/loading"
+import { useRedirect } from "@/hooks/use-redirect"
+import {
+  Field,
+  FieldError,
+  FieldGroup,
+  FieldLabel,
+  FieldSet,
+} from "@/components/ui/field"
 import Button from "@/components/ui/button"
 import Section from "@/components/layout/section"
 import useSignIn from "@/pages/sign-in/hooks/use-sign-in"
 import signInImage from "@/assets/images/sign-in-image.png"
 import SectionTitle from "@/components/ui/section-title"
 import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
-import { LoadingText } from "@/components/ui/loading"
-import { useRedirect } from "@/hooks/use-redirect"
 
 const SignIn = () => {
   useRedirect()
@@ -56,11 +62,13 @@ const SignIn = () => {
                     disabled={loading}
                   />
                 </Field>
-
-                {error && <p className="text-sm text-red-500">{error}</p>}
-
+                {error && (
+                  <div role="alert" aria-live="polite">
+                    <FieldError>{error}</FieldError>
+                  </div>
+                )}
                 <Button type="submit" disabled={loading} className="w-full">
-                  {loading ? <LoadingText description="Memproses" /> : "Masuk"}
+                  {loading ? <Loading description="Memproses" /> : "Masuk"}
                 </Button>
                 <p className="text-sm text-muted-foreground">
                   Belum memiliki akun?{" "}

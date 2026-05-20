@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { Input } from "@/components/ui/input"
-import { LoadingText } from "@/components/ui/loading"
+import { Loading } from "@/components/ui/loading"
 import { useRedirect } from "@/hooks/use-redirect"
 import { Field, FieldSet, FieldGroup, FieldLabel } from "@/components/ui/field"
 import Button from "@/components/ui/button"
@@ -80,7 +80,7 @@ const SignUp = () => {
                 </Field>
                 {error && <p className="text-sm text-red-500">{error}</p>}
                 <Button type="submit" disabled={loading} className="w-full">
-                  {loading ? <LoadingText description="Memproses" /> : "Daftar"}
+                  {loading ? <Loading description="Memproses" /> : "Daftar"}
                 </Button>
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   Dengan melanjutkan, Anda menyetujui{" "}

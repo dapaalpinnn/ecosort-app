@@ -48,7 +48,7 @@ const DropdownMenuAvatar = () => {
         align="end"
         className="mt-2 w-fit rounded-2xl bg-background px-4 tracking-tight"
       >
-        <div className="py-3 px-2">
+        <div className="px-2 py-3">
           <p className="font-medium">{user?.name}</p>
           <p className="text-muted-foreground">{user?.email}</p>
         </div>
@@ -58,7 +58,7 @@ const DropdownMenuAvatar = () => {
             const Icon = item.icon
             if (item.type === "link") {
               return (
-                <DropdownMenuItem key={item.title} asChild>
+                <DropdownMenuItem key={item.title} asChild className="p-3">
                   <NavLink to={item.href} className="cursor-pointer">
                     <Icon />
                     {item.title}
@@ -70,7 +70,7 @@ const DropdownMenuAvatar = () => {
               <DropdownMenuItem
                 key={item.title}
                 onClick={handleLogout}
-                className="cursor-pointer text-red-500 focus:text-red-500"
+                className="cursor-pointer p-3 text-red-500 focus:text-red-500"
               >
                 <Icon />
                 {item.title}

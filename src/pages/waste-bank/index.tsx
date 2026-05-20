@@ -1,6 +1,6 @@
 import { Input } from "@/components/ui/input"
+import { Loading } from "@/components/ui/loading"
 import { useState } from "react"
-import { LoadingText } from "@/components/ui/loading"
 import Button from "@/components/ui/button"
 import Section from "@/components/layout/section"
 import SectionTitle from "@/components/ui/section-title"
@@ -58,7 +58,7 @@ const WasteBank = () => {
             className="h-12 cursor-pointer sm:w-fit"
           >
             {locationLoading ? (
-              <LoadingText description="Mengambil lokasi" />
+              <Loading description="Mengambil lokasi" />
             ) : (
               "Gunakan lokasi saya"
             )}

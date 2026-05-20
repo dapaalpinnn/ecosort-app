@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { Badge } from "@/components/ui/badge"
-import { LoadingText } from "@/components/ui/loading"
+import { Loading } from "@/components/ui/loading"
 import { ArrowUpRight } from "lucide-react"
 import { type WasteBankData } from "@/types/waste-bank"
 import Section from "@/components/layout/section"
@@ -32,7 +32,7 @@ const WasteBankRecommendation = ({
         {isLoading || isEmpty ? (
           <div className="flex min-h-40 items-center justify-center rounded-3xl border border-dashed bg-muted/30 p-6 text-center">
             {isLoading ? (
-              <LoadingText description="Mencari bank sampah terdekat..." />
+              <Loading description="Mencari bank sampah terdekat..." />
             ) : (
               <p className="text-sm text-muted-foreground">
                 Tidak ada rekomendasi bank sampah ditemukan.
