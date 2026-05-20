@@ -81,18 +81,22 @@ const Article = () => {
   }, [page, searchQuery])
 
   return (
-    <Section className="px-4 sm:px-0">
+    <Section className="px-4 tracking-tight sm:px-0">
       <SecondLifeBetterLife />
-      <SectionTitle>Rekomendasi Artikel</SectionTitle>
-      <p className="mx-4 tracking-tight text-muted-foreground sm:mx-0">
-        Baca artikel seputar pengelolaan sampah dan lingkungan.
-      </p>
+      <div className="mb-6 w-full">
+        <SectionTitle as="h1" className="w-full">
+          Rekomendasi Artikel
+        </SectionTitle>
+        <p className="mt-2 text-muted-foreground">
+          Baca artikel seputar pengelolaan sampah dan lingkungan.
+        </p>
+      </div>
       <div className="mx-4 w-full sm:mx-0">
         <Input
           placeholder="Cari artikel berdasarkan judul ..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="h-12 w-full max-w-sm rounded-xl border-muted-foreground/20 bg-background px-4 text-sm shadow-none focus-visible:ring-1 md:max-w-full"
+          className="h-12 w-full max-w-sm border-muted-foreground/20 bg-background px-4 text-sm shadow-none focus-visible:ring-1 md:max-w-full"
         />
       </div>
       {loading && (

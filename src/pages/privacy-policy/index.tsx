@@ -5,12 +5,9 @@ import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
 
 const PrivacyPolicy = () => {
   return (
-    <Section className="py-20 pt-16">
+    <Section>
       <SecondLifeBetterLife />
-      <SectionTitle
-        as="h2"
-        className="mx-auto text-center text-4xl leading-tight"
-      >
+      <SectionTitle as="h2" className="w-full">
         Kebijakan Privasi
       </SectionTitle>
       <div className="min-h-screen px-6 py-10">

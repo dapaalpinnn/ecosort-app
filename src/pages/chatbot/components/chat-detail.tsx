@@ -5,7 +5,7 @@ type ChatDetailProps = {
   messages: ChatMessage[]
 }
 
-export default function ChatDetail({ messages }: ChatDetailProps) {
+const ChatDetail = ({ messages }: ChatDetailProps) => {
   return (
     <div className="flex flex-col gap-4">
       {messages.map((chat) => (
@@ -14,3 +14,5 @@ export default function ChatDetail({ messages }: ChatDetailProps) {
     </div>
   )
 }
+
+export default ChatDetail

@@ -1,3 +1,5 @@
+import { generatePagination } from "@/utils/generate-pagination"
+import { type AppPaginationProps } from "@/types/pagination"
 import {
   Pagination,
   PaginationContent,
@@ -5,9 +7,8 @@ import {
   PaginationPrevious,
   PaginationLink,
   PaginationNext,
+  PaginationEllipsis,
 } from "@/components/ui/pagination"
-import { generatePagination } from "@/utils/generate-pagination"
-import { type AppPaginationProps } from "@/types/pagination"
 
 const AppPagination = ({
   page,
@@ -45,7 +46,7 @@ const AppPagination = ({
         {generatePagination({ totalPages, page }).map((item, index) => (
           <PaginationItem key={index}>
             {item === "..." ? (
-              <span className="px-3 text-muted-foreground">...</span>
+              <PaginationEllipsis />
             ) : (
               <PaginationLink
                 href="#"

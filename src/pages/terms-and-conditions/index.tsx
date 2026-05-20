@@ -5,12 +5,9 @@ import SecondLifeBetterLife from "@/components/ui/second-life-better-life"
 
 const TermsCondition = () => {
   return (
-    <Section className="py-20 pt-16">
+    <Section>
       <SecondLifeBetterLife />
-      <SectionTitle
-        as="h2"
-        className="mx-auto my-10 text-center text-4xl leading-tight"
-      >
+      <SectionTitle as="h2" className="w-full">
         Syarat dan Ketentuan
       </SectionTitle>
       <div className="mmin-h-screen px-6 py-10">

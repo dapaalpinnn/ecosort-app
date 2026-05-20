@@ -28,7 +28,7 @@ const WasteBank = () => {
   })
 
   return (
-    <Section className="min-h-svh px-4 tracking-tight">
+    <Section className="px-4 tracking-tight sm:px-0">
       <SecondLifeBetterLife />
       <div className="mb-6 w-full">
         <SectionTitle as="h1" className="mx-auto">
@@ -50,7 +50,7 @@ const WasteBank = () => {
               setSearch(e.target.value)
               setPage(1)
             }}
-            className="h-12 w-full"
+            className="h-12 w-full px-4"
           />
           <Button
             onClick={getUserLocation}

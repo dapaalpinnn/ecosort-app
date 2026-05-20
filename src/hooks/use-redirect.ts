@@ -10,10 +10,7 @@ export const useRedirect = (redirectTo = "/upload") => {
   const { isAuthenticated, isPending } = useAuth()
 
   useEffect(() => {
-    // wait until authentication check is complete
     if (isPending) return
-
-    // redirect authenticated users
     if (isAuthenticated) {
       navigate(redirectTo, { replace: true })
     }
