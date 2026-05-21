@@ -61,15 +61,21 @@ const ChatWidget = ({ onClose }: ChatWidgetProps) => {
   }
 
   return (
-    <div className="fixed right-5 bottom-28 z-50 flex h-125 w-87.5 flex-col overflow-hidden rounded-2xl bg-white shadow-2xl">
-      <div className="relative flex h-20 items-center justify-center px-4 py-2 text-primary">
-        <div className="text-center">
-          <h1 className="text-lg font-bold">Selamat datang di Ecobot</h1>
+    <div className="fixed bottom-24 left-1/2 z-50 flex h-125 w-[calc(100%-2rem)] max-w-87.5 -translate-x-1/2 flex-col overflow-hidden rounded-2xl bg-white shadow-2xl sm:right-5 sm:left-auto sm:w-87.5 sm:translate-x-0">
+      <div className="flex h-20 items-center justify-between px-4 py-2 text-primary">
+        <div className="w-5" />
+        <div className="flex-1 text-center">
+          <h1 className="text-xl font-medium tracking-tight">
+            Selamat datang di Ecobot
+          </h1>
           <p className="text-xs opacity-80">
             Asisten virtual untuk membantu Anda!
           </p>
         </div>
-        <button onClick={onClose} className="absolute right-4">
+        <button
+          onClick={onClose}
+          className="flex h-8 w-8 items-center justify-center rounded-full transition hover:bg-black/5"
+        >
           <X size={20} />
         </button>
       </div>

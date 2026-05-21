@@ -20,7 +20,7 @@ const FloatingChatbot = () => {
           repeat: Infinity,
           ease: "easeInOut",
         }}
-        className="fixed right-5 bottom-5 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-lg ring-1 ring-black/5 transition-all md:h-18 md:w-18"
+        className="fixed right-5 bottom-5 z-50 flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-white shadow-lg ring-1 ring-black/5 transition-all md:h-18 md:w-18"
       >
         <img
           src={ChatbotIcon}

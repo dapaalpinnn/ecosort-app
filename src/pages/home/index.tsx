@@ -24,10 +24,14 @@ const Home = () => {
 
   return (
     <>
-      <Section id="hero" className="min-h-[70svh]">
+      <Section id="hero" className="min-h-[80svh] lg:max-w-7xl">
         <SecondLifeBetterLife withAnimation />
-        <SectionTitle withAnimation as="h1" className="leading-tight">
-          EcoSort AI. Your Digital Partner for Sustainable Living.
+        <SectionTitle
+          withAnimation
+          as="h1"
+          className="leading-tight lg:text-6xl lg:font-normal"
+        >
+          Ecosort AI. Your Digital Partner for Sustainable Living.
         </SectionTitle>
         <motion.p
           variants={itemVariants}
@@ -53,7 +57,11 @@ const Home = () => {
               </Button>
             </>
           ) : (
-            <Button size="lg" onClick={() => navigate("/upload")}>
+            <Button
+              size="lg"
+              onClick={() => navigate("/upload")}
+              className="cursor-pointer"
+            >
               <AiIcon /> Mulai Identifikasi
             </Button>
           )}
