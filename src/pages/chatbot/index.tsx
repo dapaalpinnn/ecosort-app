@@ -79,7 +79,10 @@ const ChatWidget = ({ onClose }: ChatWidgetProps) => {
           <X size={20} />
         </button>
       </div>
-      <div className="flex-1 overflow-y-auto px-4 py-4">
+      <div
+        data-lenis-prevent
+        className="flex-1 overflow-y-auto overscroll-none px-4 py-4"
+      >
         <ChatDetail messages={messages} />
       </div>
       <div className="flex items-center gap-2 border-t bg-white p-3">
